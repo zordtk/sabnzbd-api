@@ -9,7 +9,16 @@ import { resolve } from "path/posix";
 import { resolveCaa } from "dns";
  
 export class Client {
+    /**
+     * The hostname of the SABnzbd server including protocl
+     * @private
+     */
     private mHost: string;
+
+    /**
+     * The API key for the SABnzbd server
+     * @private
+     */
     private mApiKey: string;
 
     /**
@@ -542,6 +551,7 @@ export class Client {
      * Set configuration option
      * @param args JSON object with fields section, keyword, and value
      * @returns JSON object with new config options if set
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     setConfig(args: any): Promise<any> {
         return new Promise<any>(async resolve => {
@@ -553,7 +563,8 @@ export class Client {
     /**
      * Reset config item to default value
      * @param keyword 
-     * @returns 
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     setConfigDefault(keyword: string|string[]): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -571,6 +582,12 @@ export class Client {
         });
     }
 
+    /**
+     * Translate any text known to SABnzbd from English to the locale setting of the user.
+     * @param text - The text to translate
+     * @returns The translated text
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     translateText(text: string): Promise<string> {
         return new Promise<string>(async (resolve, reject) => {
             let results = await this.methodCall("translate", {value: text});
@@ -581,6 +598,11 @@ export class Client {
         });
     }
 
+    /**
+     * Shutdown SABnzbd
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     shutdown(): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("shutdown");
@@ -588,6 +610,11 @@ export class Client {
         });
     }
 
+    /**
+     * Restart SABnzbd
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     restart(): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("restart");
@@ -595,6 +622,11 @@ export class Client {
         });
     }
 
+    /**
+     * Restart SABnzbd and perform a queue repair 
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     restartRepair(): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("restart_repair");
@@ -602,6 +634,11 @@ export class Client {
         });
     }
 
+    /**
+     * Pause post-processing queue
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     pausePostProcessing(): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("pause_pp");
@@ -609,6 +646,11 @@ export class Client {
         });
     }
 
+    /**
+     * Fetch and process all RSS feeds
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     rssNow(): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("rss_now");
@@ -616,6 +658,11 @@ export class Client {
         });
     }
 
+    /**
+     * Scan Watched Folder now
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     watchedNow(): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("watched_now");
@@ -623,13 +670,27 @@ export class Client {
         });
     }
 
-    async resetQuota(): Promise<Results> {
+    /**
+     * Reset the user defined quota to 0
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    resetQuota(): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("reset_quota");
             resolve(results);
         });
     }
 
+    /**
+     * Call method on SABnzbd server and parse results as a JSON object if output
+     * is json.
+     * @private
+     * @param method - The api method to call
+     * @param args - Either a JSON object or a URLSearchParams object containing the arguments
+     * @param output - Output type either json or text
+     * @returns JSON object or string containing text depending on output
+     */
     private methodCall(method: string, args?: URLSearchParams|any, output: string = 'json'): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             let apiUrl = new URL(`${this.mHost}/api`);
