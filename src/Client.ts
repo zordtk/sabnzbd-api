@@ -3,7 +3,7 @@
 //   Written By Jeremy Harmon <jeremy.harmon@zoho.com>
 
 import got from "got";
-import {Stats,ErrorType,ErrorWarning,ServerStats,Queue,QueueSlot,CompleteAction,SortOptions,Priority,PostProcessing,File,Results} from "./Types";
+import {Stats,ErrorType,ErrorWarning,ServerStats,Queue,QueueSlot,CompleteAction,SortOptions,Priority,PostProcessing,File,Results,History,HistorySlots,HistoryStageLog} from "./Types";
 import FormData = require("form-data");
 import { resolve } from "path/posix";
 import { resolveCaa } from "dns";
@@ -413,6 +413,35 @@ export class Client {
         return new Promise<File[]>(async resolve => {
             let results = await this.methodCall("get_files", {value: id});
             resolve(<File[]>results.files);
+        });
+    }
+
+    /**
+     * Full history output with details about all jobs. The queue and the history output share many common fields, but the history also contains 
+     * statistiscs about how much has been downloaded in the past day, week, month and total.
+     * @param start - Index of job to start at
+     * @param limit - Number of jobs to display
+     * @param category - Only return jobs in this category
+     * @param search - Filter job names by search term
+     * @param nzoIds - Filter jobs by nzo_ids
+     * @param failedOnly - Only show failed jobs
+     * @param lastHistoryUpdate Only return full output if anything has changed since lastHistoryUpdate, the last update is given by a previous call to history
+     * @returns The history
+     */
+    history(start?: number, limit?: number, category?: string, search?: string, nzoIds?: string[], failedOnly?: boolean, lastHistoryUpdate?: boolean): Promise<History> {
+        return new Promise<History>(async resolve => {
+            let searchParams = new URLSearchParams();
+            if( start )             searchParams.append("start", start.toString());
+            if( limit )             searchParams.append("limit", limit.toString());
+            if( category )          searchParams.append("category", category);
+            if( search )            searchParams.append("search", search);
+            if( nzoIds )            searchParams.append("nzo_ids", nzoIds.join(','));
+            if( failedOnly )        searchParams.append("failed_only", (failedOnly ? '1':'0'));
+            if( lastHistoryUpdate ) searchParams.append("last_history_update", (lastHistoryUpdate ? '1':'0'));
+
+            let resultsObj          = await this.methodCall("history");
+            let results: History    = resultsObj.history;
+            resolve(results);
         });
     }
 
