@@ -63,5 +63,8 @@ client.addUrl(formData).then(results => {
 
 # Todo
 * History functions
+* Status functions
+* Status information
+* Orphaned Jobs
 * Documentation (for now take a look at the TypeScript types and https://sabnzbd.org/wiki/advanced/api)
 * Examples
