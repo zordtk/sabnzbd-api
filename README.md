@@ -1,13 +1,12 @@
 # SABnzbd-API
-SABnzbd API client written in TypeScript licensed under the MIT. It supports all of the api functions found
-in the version 3.1.1 documentation (https://sabnzbd.org/wiki/advanced/api). It still lacks documentation.
+[SABnzbd](http://sabnzbd.org/) API client written in TypeScript licensed under the MIT. It supports most of the API calls listed in the version 3.1.1 documentation (https://sabnzbd.org/wiki/advanced/api). It's still under active development and will soon support the remaining functions.
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zordtk/sabnzbd-api/blob/main/LICENSE)  [![npm version](https://img.shields.io/npm/v/sabnzbd-api.svg?style=flat)](https://www.npmjs.com/package/sabnzbd-api) [![CircleCI](https://circleci.com/gh/zordtk/sabnzbd-api.svg?style=shield)](https://circleci.com/gh/zordtk/sabnzbd-api)
 
 # Features
-* Promise-based API
-* Supports uploading of files via formdata
 * Written in TypeScript
+* Promise based API
+* Supports adding files via multi-part form data using the [FormData](https://github.com/form-data/form-data) library.
 
 # Dependencies
 * TypeScript
@@ -18,7 +17,7 @@ in the version 3.1.1 documentation (https://sabnzbd.org/wiki/advanced/api). It s
 ```npm install --save sabnzbd-api```
 
 # Usage
-#### version(): Promise\<string\>
+#### version()
 ```javascript
 const SABnzbd = require("sabnzbd-api");
 let client    = new SABnzbd.Client("http://example.com/sabnzbd", "apikey");
@@ -29,8 +28,7 @@ client.version().then(version => {
 });
 ```
 
-#### addUrl(url: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<Results\>
-```javascript
+#### addUrl()
 const SABnzbd = require("sabnzbd-api");
 let client    = new SABnzbd.Client("http://example.com/sabnzbd", "apikey");
 client.addUrl('url-to-nzb').then(results => {
@@ -42,7 +40,7 @@ client.addUrl('url-to-nzb').then(results => {
     console.log(error.message);
 });
 ```
-#### addFile(formData: FormData, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<Results\>
+#### addFile()
 ```javascript
 const SABnzbd   = require("sabnzbd-api");
 const fs        = require("fs");
@@ -66,5 +64,5 @@ client.addUrl(formData).then(results => {
 * Status functions
 * Status information
 * Orphaned Jobs
-* Documentation (for now take a look at the TypeScript types and https://sabnzbd.org/wiki/advanced/api)
 * Examples
+* Test browser compatibility
