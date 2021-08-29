@@ -30,7 +30,7 @@ client.version().then(version => {
 });
 ```
 
-#### addUrl(url: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<boolean\>
+#### addUrl(url: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<Results\>
 ```javascript
 const SABnzbd = require("sabnzbd-api");
 let client    = new SABnzbd.Client("http://example.com/sabnzbd", "apikey");
@@ -43,7 +43,7 @@ client.addUrl('url-to-nzb').then(results => {
     console.log(error.message);
 });
 ```
-#### addFile(formData: FormData, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<string[]|undefined\>
+#### addFile(formData: FormData, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<Results\>
 ```javascript
 const SABnzbd   = require("sabnzbd-api");
 const fs        = require("fs");
