@@ -5,7 +5,7 @@ in the version 3.1.1 documentation (https://sabnzbd.org/wiki/advanced/api). It s
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zordtk/sabnzbd-api/blob/main/LICENSE)  [![npm version](https://img.shields.io/npm/v/sabnzbd-api.svg?style=flat)](https://www.npmjs.com/package/sabnzbd-api) [![CircleCI](https://circleci.com/gh/zordtk/sabnzbd-api.svg?style=shield)](https://circleci.com/gh/zordtk/sabnzbd-api)
 
 # Features
-* Supports all API calls
+* Promise-based API
 * Supports uploading of files via formdata
 * Written in TypeScript
 
@@ -29,36 +29,20 @@ client.version().then(version => {
 });
 ```
 
-#### addUrl(url: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<boolean\>
+#### addUrl(url: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<Results\>
 ```javascript
 const SABnzbd = require("sabnzbd-api");
 let client    = new SABnzbd.Client("http://example.com/sabnzbd", "apikey");
-client.addUrl('url-to-nzb').then(status => {
-    if( status )
+client.addUrl('url-to-nzb').then(results => {
+    if( results.status )
         console.log('Added NZB');
     else
-        console.log('Failed to add NZB');
+        console.log('Failed to add NZB: ' + results.error);
 }).catch(error => {
     console.log(error.message);
 });
 ```
-
-#### addFile(fileStream: ReadStream, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<string[]|undefined\>
-```javascript
-const SABnzbd = require("sabnzbd-api");
-const fs      = require("fs");
-let client    = new SABnzbd.Client("http://example.com/sabnzbd", "apikey");
-client.addUrl(fs.createReadStream("/path/to/file")).then(idsOfFilesAdded => {
-    if( idsOfFilesAdded )
-        console.log('Added NZB');
-    else
-        console.log('Failed to add NZB');
-}).catch(error => {
-    console.log(error.message);
-});
-```
-
-#### addFileFromFormData(formData: FormData, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<string[]|undefined\>
+#### addFile(formData: FormData, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined, priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise\<Results\>
 ```javascript
 const SABnzbd   = require("sabnzbd-api");
 const fs        = require("fs");
@@ -67,16 +51,20 @@ let client      = new SABnzbd.Client("http://example.com/sabnzbd", "apikey");
 let formData    = new FormData();
 
 formData.append("name", fs.createReadStream("/path/to/file"));
-client.addUrl(formData).then(idsOfFilesAdded => {
-    if( idsOfFilesAdded )
+client.addUrl(formData).then(results => {
+    if( results.status )
         console.log('Added NZB');
     else
-        console.log('Failed to add NZB');
+        console.log('Failed to add NZB: ' + results.error);
 }).catch(error => {
     console.log(error.message);
 });
 ```
 
 # Todo
+* History functions
+* Status functions
+* Status information
+* Orphaned Jobs
 * Documentation (for now take a look at the TypeScript types and https://sabnzbd.org/wiki/advanced/api)
 * Examples
