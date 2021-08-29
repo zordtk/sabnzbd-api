@@ -29,6 +29,7 @@ client.version().then(version => {
 ```
 
 #### addUrl()
+```javascript
 const SABnzbd = require("sabnzbd-api");
 let client    = new SABnzbd.Client("http://example.com/sabnzbd", "apikey");
 client.addUrl('url-to-nzb').then(results => {
@@ -40,6 +41,7 @@ client.addUrl('url-to-nzb').then(results => {
     console.log(error.message);
 });
 ```
+
 #### addFile()
 ```javascript
 const SABnzbd   = require("sabnzbd-api");
