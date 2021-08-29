@@ -5,6 +5,7 @@ in the version 3.1.1 documentation (https://sabnzbd.org/wiki/advanced/api). It s
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zordtk/sabnzbd-api/blob/main/LICENSE)  [![npm version](https://img.shields.io/npm/v/sabnzbd-api.svg?style=flat)](https://www.npmjs.com/package/sabnzbd-api) [![CircleCI](https://circleci.com/gh/zordtk/sabnzbd-api.svg?style=shield)](https://circleci.com/gh/zordtk/sabnzbd-api)
 
 # Features
+* Promise-based API
 * Supports all API calls
 * Supports uploading of files via formdata
 * Written in TypeScript
