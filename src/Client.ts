@@ -32,7 +32,7 @@ export class Client {
      * @returns {@link Queue}
      * @throws {Error} throws error if unable to reach SABnzbd server
      */
-    async queue(start: number|undefined = undefined, limit: number|undefined = undefined, search: string|undefined = undefined, nzoIds: string[]|undefined = undefined) {
+    async queue(start?: number, limit?: number, search?: string, nzoIds?: string[]) {
         let searchParams = new URLSearchParams();
         if( start )
             searchParams.append("start", String(start));
@@ -91,7 +91,7 @@ export class Client {
      * @returns {@link Results} containing the status and affected nzo_ids.
      * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
-    queuePurge(search: string|undefined = undefined): Promise<Results> {
+    queuePurge(search?: string): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
             let searchParams = new URLSearchParams();
             searchParams.append("name", "purge");
@@ -129,8 +129,7 @@ export class Client {
      * @returns {@link Results} containing the status and affected nzo_ids.
      * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
-    addUrl(url: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined,
-                 priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise<Results> {
+    addUrl(url: string, name?: string, password?: string, cat?: string, script?: string, priority?: Priority, postProcess?: PostProcessing): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
             let searchParams = new URLSearchParams();
 
@@ -159,8 +158,7 @@ export class Client {
      * @returns {@link Results} containing the status and affected nzo_ids.
      * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
-    addPath(filePath: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined,
-                  priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise<Results> {
+    addPath(filePath: string, name?: string, password?: string, cat?: string, script?: string, priority?: Priority, postProcess?: PostProcessing): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
             let searchParams = new URLSearchParams();
 
@@ -190,8 +188,7 @@ export class Client {
      * @returns {@link Results} containing the status and affected nzo_ids.
      * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
-    addFile(formData: FormData, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined,
-                  priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise<Results> {
+    addFile(formData: FormData, name?: string, password?: string, cat?: string, script?: string, priority?: Priority, postProcess?: PostProcessing): Promise<Results> {
         return new Promise<Results>((resolve, reject) => {
             formData.append("mode", "addfile");
             formData.append("output", "json");
@@ -301,7 +298,7 @@ export class Client {
      * @returns {@link Results.Status} set to true or false if the call was successful
      * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
-    jobChangeName(id: string, newName: string, password: string|undefined): Promise<Results> {
+    jobChangeName(id: string, newName: string, password?: string): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let searchParams = new URLSearchParams();
             searchParams.append("name", "rename");
@@ -528,7 +525,7 @@ export class Client {
      * @returns Config item in JSON object
      * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
-    getConfig(section: string|undefined = undefined, keyword: string|undefined = undefined): Promise<any> {
+    getConfig(section?: string, keyword?: string): Promise<any> {
         return new Promise<any>(async resolve => {
             let options: any    = {};
             if( section )
@@ -633,7 +630,7 @@ export class Client {
         });
     }
 
-    private methodCall(method: string, args: URLSearchParams|any|undefined = undefined, output: string = 'json'): Promise<any> {
+    private methodCall(method: string, args?: URLSearchParams|any, output: string = 'json'): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             let apiUrl = new URL(`${this.mHost}/api`);
             if( args ) {
