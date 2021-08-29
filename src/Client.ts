@@ -445,7 +445,7 @@ export class Client {
             resolve(results);
         });
     }
-    
+
     /**
      * Retry history item(s) based on nzo_id Optionally provide a password for unpacking.
      * @param id - nzo_id of the history item
@@ -497,6 +497,46 @@ export class Client {
             } catch( error ) {
                 reject(new Error('Error parsing response as JSON'));
             }
+        });
+    }
+
+    /**
+     * Delete history items(s) based on nzo_id
+     * @param id - nzo_id of the item(s) to delete
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    historyDelete(id: string|string[]): Promise<Results> {
+        return new Promise<Results>(async (resolve, reject) => {
+            let ids = id;
+            if( id instanceof Array )
+                ids = id.join(',');
+            let results: Results = await this.methodCall("history", {name: "delete", value: ids});
+            resolve(results);
+        });
+    }
+
+    /**
+     * Delete all history items(s)
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+     historyDeleteAll(): Promise<Results> {
+        return new Promise<Results>(async (resolve, reject) => {
+            let results: Results = await this.methodCall("history", {name: "delete", value: 'all'});
+            resolve(results);
+        });
+    }
+
+    /**
+     * Delete all failed history items(s)
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+     historyDeleteAllFailed(): Promise<Results> {
+        return new Promise<Results>(async (resolve, reject) => {
+            let results: Results = await this.methodCall("history", {name: "delete", value: 'failed'});
+            resolve(results);
         });
     }
 
