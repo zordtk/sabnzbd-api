@@ -6,7 +6,6 @@ in the version 3.1.1 documentation (https://sabnzbd.org/wiki/advanced/api). It s
 
 # Features
 * Promise-based API
-* Supports all API calls
 * Supports uploading of files via formdata
 * Written in TypeScript
 
@@ -63,5 +62,6 @@ client.addUrl(formData).then(results => {
 ```
 
 # Todo
+* History functions
 * Documentation (for now take a look at the TypeScript types and https://sabnzbd.org/wiki/advanced/api)
 * Examples
