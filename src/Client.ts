@@ -426,6 +426,7 @@ export class Client {
      * @param nzoIds - Filter jobs by nzo_ids
      * @param failedOnly - Only show failed jobs
      * @param lastHistoryUpdate Only return full output if anything has changed since lastHistoryUpdate, the last update is given by a previous call to history
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      * @returns The history
      */
     history(start?: number, limit?: number, category?: string, search?: string, nzoIds?: string[], failedOnly?: boolean, lastHistoryUpdate?: boolean): Promise<History> {
@@ -439,9 +440,63 @@ export class Client {
             if( failedOnly )        searchParams.append("failed_only", (failedOnly ? '1':'0'));
             if( lastHistoryUpdate ) searchParams.append("last_history_update", (lastHistoryUpdate ? '1':'0'));
 
-            let resultsObj          = await this.methodCall("history");
+            let resultsObj          = await this.methodCall("history", searchParams);
             let results: History    = resultsObj.history;
             resolve(results);
+        });
+    }
+    
+    /**
+     * Retry history item(s) based on nzo_id Optionally provide a password for unpacking.
+     * @param id - nzo_id of the history item
+     * @param password - Password for unpacking
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    historyRetry(id: string, password?: string): Promise<Results> {
+        return new Promise<Results>(async resolve => {
+            let searchParams = new URLSearchParams();
+            searchParams.append("value", id);
+            if( password ) searchParams.append("password", password);
+            
+            let results: Results = await this.methodCall("retry", searchParams);
+            resolve(results);
+        });
+    }
+
+    /**
+     * Retry history item(s) based on nzo_id and an additional NZB set to the nzbfile field. 
+     * Optionally provide a password for unpacking.
+     * @param id - nzo_id of the history item
+     * @param formData - New NZB to upload
+     * @param password - Password for unpacking
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    historyRetryWithNZB(id: string, formData: FormData, password?: string): Promise<Results> {
+        return new Promise<Results>(async (resolve, reject) => {
+            formData.append("mode", "retry");
+            formData.append("output", "json");
+            formData.append("apikey", this.mApiKey);
+            formData.append("value", id);
+            formData.append("nzbfile", formData);
+            if( password ) formData.append("password", password);
+            
+            try {
+                got.post(`${this.mHost}/api`, {body: formData}).then(response => {
+                    if( response.statusCode === 200 ) {
+                        let resultObject: Results = JSON.parse(response.body);
+                        resolve(resultObject);
+                    }
+                }).catch(error => {
+                    if( error instanceof Error )
+                        reject(new Error(`Error accessing SABnzbd host: ${error.message}`));
+                    else
+                        reject(new Error('Error accessing SABnzbd host'));
+                });
+            } catch( error ) {
+                reject(new Error('Error parsing response as JSON'));
+            }
         });
     }
 
