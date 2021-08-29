@@ -7,10 +7,13 @@ import {Stats,ErrorType,ErrorWarning,ServerStats,Queue,QueueSlot,CompleteAction,
 import FormData = require("form-data");
 import { resolve } from "path/posix";
 import { resolveCaa } from "dns";
- 
+
+/**
+ * The {@link https://sabnzbd.org|SABnzbd} API Client.
+ */
 export class Client {
     /**
-     * The hostname of the SABnzbd server including protocl
+     * The hostname of the SABnzbd server including protocol (HTTP/HTTPS)
      * @private
      */
     private mHost: string;
@@ -22,7 +25,20 @@ export class Client {
     private mApiKey: string;
 
     /**
+     * Create new API client connecting to the given host using the supplied apiKey.
      * 
+     * @example
+     * ```javascript
+     * const sabnzbd    = require("sabnzbd-api");
+     * let client       = new sabnzbd.Client("https://host.com/sabnzbd", "apikey");
+     * ```
+     * 
+     * If your host requires HTTP authentication you can pass it in the host param
+     * @example
+     * ```javascript
+     * const sabnzbd    = require("sabnzbd-api");
+     * let client       = new sabnzbd.Client("https://user:password@host.com/sabnzbd", "apikey");
+     * ```
      * @param host - Hostname of the SABnzbd server. Include HTTP/HTTPS prefix
      * @param apiKey - API key from the SABnzbd configuration
      */
@@ -39,7 +55,7 @@ export class Client {
      * @param search - Filter jobs names by search term
      * @param nzoIds - Filter jobs by nzo_ids
      * @returns {@link Queue}
-     * @throws {Error} throws error if unable to reach SABnzbd server
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server
      */
     async queue(start?: number, limit?: number, search?: string, nzoIds?: string[]) {
         let searchParams = new URLSearchParams();
@@ -59,7 +75,7 @@ export class Client {
     /**
      * Pauses the whole queue
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queuePause(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -71,7 +87,7 @@ export class Client {
     /**
      * Resume the whole queue
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queueResume(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -85,7 +101,7 @@ export class Client {
      * @param sortBy - The option to sort queue by
      * @param ascending - Ascending or false for Descending order
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queueSort(sortBy: SortOptions, ascending: boolean): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -98,7 +114,7 @@ export class Client {
      * Remove all jobs from the queue, or only the ones matching search. Returns nzb_id of the jobs removed.
      * @param search - Filter jobs by search term
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queuePurge(search?: string): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
@@ -117,7 +133,7 @@ export class Client {
      * @param action - Either one of {@link CompleteAction} or a string contaning the name of a script to execute. Prefix the script name
      * with script_ example: script_process.py
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changeCompleteAction(action: CompleteAction|string): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -136,7 +152,7 @@ export class Client {
      * @param priority - Priority to be assigned, one of {@link Priority}
      * @param postProcess - Post-processing options, one of {@link PostProcessing}
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     addUrl(url: string, name?: string, password?: string, cat?: string, script?: string, priority?: Priority, postProcess?: PostProcessing): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
@@ -165,7 +181,7 @@ export class Client {
      * @param priority - Priority to be assigned, one of {@link Priority}
      * @param postProcess - Post-processing options, one of {@link PostProcessing}
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     addPath(filePath: string, name?: string, password?: string, cat?: string, script?: string, priority?: Priority, postProcess?: PostProcessing): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
@@ -195,7 +211,7 @@ export class Client {
      * @param priority - Priority to be assigned, one of {@link Priority}
      * @param postProcess - Post-processing options, one of {@link PostProcessing}
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     addFile(formData: FormData, name?: string, password?: string, cat?: string, script?: string, priority?: Priority, postProcess?: PostProcessing): Promise<Results> {
         return new Promise<Results>((resolve, reject) => {
@@ -232,7 +248,7 @@ export class Client {
      * Pause a single job based on its nzo_id. Returns list of affected nzo_ids.
      * @param id - The nzo_id of the Job to pause
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobPause(id: string): Promise<Results> {
         return new Promise<Results>(async resolve =>{
@@ -245,7 +261,7 @@ export class Client {
      * Resumes a single job based on its nzo_id. Returns list of affected nzo_ids.
      * @param id - The nzo_id of the Job to resume 
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobResume(id: string): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -258,7 +274,7 @@ export class Client {
      * Delets jobs based on its nzo_id. Returns list of affected nzo_ids.
      * @param id - Either a string containing one nzo_id or a array of nzo_ids
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobDelete(id: string|string[]): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -275,7 +291,7 @@ export class Client {
     /**
      * Delete all jobs
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobDeleteAll(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -290,7 +306,7 @@ export class Client {
      * @param firstId - nzo_id of job to move
      * @param secondId - nzo_id of where you want to put the job, shifting this job down.
      * @returns 
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobMove(firstId: string, secondId: string): Promise<any> {
         return new Promise<any>(async resolve => {
@@ -305,7 +321,7 @@ export class Client {
      * @param newName - New name for the job
      * @param password - Optional password to be used during unpacking
      * @returns {@link Results.Status} set to true or false if the call was successful
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobChangeName(id: string, newName: string, password?: string): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -325,7 +341,7 @@ export class Client {
      * @param id - The nzo_id of the Job to change
      * @param category - The name of the category
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changeCat(id: string, category: string): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -339,7 +355,7 @@ export class Client {
      * @param id - The nzo_id of the Job to change
      * @param script - The script name
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changeScript(id: string, script: string): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -353,7 +369,7 @@ export class Client {
      * @param id - The nzo_id of the Job to change
      * @param priority - The priority
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changePriority(id: string, priority: Priority): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -367,7 +383,7 @@ export class Client {
      * @param id - The nzo_id of the Job to change
      * @param postProcessing - The PostProcessing level
      * @returns {@link Results} containing the status and affected nzo_ids.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changePostProcessing(id: string, postProcessing: PostProcessing): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -380,7 +396,7 @@ export class Client {
      * Get files of job
      * @param id - The nzo_id of the Job
      * @returns Any array of {@link File}
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     getFiles(id: string): Promise<File[]> {
         return new Promise<File[]>(async resolve => {
@@ -392,7 +408,7 @@ export class Client {
     /**
      * Get version of running SABnzbd
      * @returns String containing the version information
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     version(): Promise<string> {
         return new Promise<string>(async (resolve, reject) => {
@@ -407,7 +423,7 @@ export class Client {
     /**
      * Get authentication methods available for interaction with the API
      * @returns An array of auth methods
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     auth(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
@@ -422,7 +438,7 @@ export class Client {
     /**
      * Get all active warnings
      * @returns An array of {@link ErrorWarning} describing all warnings.
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     async warnings(): Promise<ErrorWarning[]> {
         return new Promise<ErrorWarning[]>(async (resolve, reject) => {
@@ -442,7 +458,7 @@ export class Client {
     /**
      * Clear all active warnings
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     warningsClear(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -454,7 +470,7 @@ export class Client {
     /**
      * Get all categories
      * @returns An array of strings containing the categories
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     getCats(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
@@ -470,7 +486,7 @@ export class Client {
     /**
      * Get all scripts
      * @returns An array of strings containing the scripts
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     getScripts(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
@@ -485,7 +501,7 @@ export class Client {
     /**
      * Return download statistics in bytes, total and per-server.
      * @returns {@link Stats} containing all the statistic information
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     serverStats(): Promise<Stats> {
         return new Promise<Stats>(async (resolve, reject) => {
@@ -532,7 +548,7 @@ export class Client {
      * @param section - Section of the config item
      * @param keyword - The config item
      * @returns Config item in JSON object
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     getConfig(section?: string, keyword?: string): Promise<any> {
         return new Promise<any>(async resolve => {
@@ -551,7 +567,7 @@ export class Client {
      * Set configuration option
      * @param args JSON object with fields section, keyword, and value
      * @returns JSON object with new config options if set
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     setConfig(args: any): Promise<any> {
         return new Promise<any>(async resolve => {
@@ -564,7 +580,7 @@ export class Client {
      * Reset config item to default value
      * @param keyword 
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     setConfigDefault(keyword: string|string[]): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -586,7 +602,7 @@ export class Client {
      * Translate any text known to SABnzbd from English to the locale setting of the user.
      * @param text - The text to translate
      * @returns The translated text
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     translateText(text: string): Promise<string> {
         return new Promise<string>(async (resolve, reject) => {
@@ -601,7 +617,7 @@ export class Client {
     /**
      * Shutdown SABnzbd
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     shutdown(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -613,7 +629,7 @@ export class Client {
     /**
      * Restart SABnzbd
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     restart(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -625,7 +641,7 @@ export class Client {
     /**
      * Restart SABnzbd and perform a queue repair 
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     restartRepair(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -637,7 +653,7 @@ export class Client {
     /**
      * Pause post-processing queue
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     pausePostProcessing(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -649,7 +665,7 @@ export class Client {
     /**
      * Fetch and process all RSS feeds
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     rssNow(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -661,7 +677,7 @@ export class Client {
     /**
      * Scan Watched Folder now
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     watchedNow(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -673,7 +689,7 @@ export class Client {
     /**
      * Reset the user defined quota to 0
      * @returns {@link Results} containing the status
-     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     resetQuota(): Promise<Results> {
         return new Promise<Results>(async resolve => {
