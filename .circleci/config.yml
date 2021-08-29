@@ -11,3 +11,12 @@ jobs:
       - run:
           name: Building
           command: npm run build
+workflows:
+  version: 2
+  testbuild:
+    jobs:
+      - build:
+        filters:
+            branches:
+              ignore:
+                "gh-pages"
