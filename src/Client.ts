@@ -14,8 +14,8 @@ export class Client {
 
     /**
      * 
-     * @param host Hostname of the SABnzbd server. Include HTTP/HTTPS prefix
-     * @param apiKey API key from the SABnzbd configuration
+     * @param host - Hostname of the SABnzbd server. Include HTTP/HTTPS prefix
+     * @param apiKey - API key from the SABnzbd configuration
      */
     constructor(host: string, apiKey: string) {
         this.mHost      = host;
@@ -25,11 +25,11 @@ export class Client {
     /**
      * Full queue output with details about all jobs.
      * 
-     * @param start Index of job to start at
-     * @param limit Number of jobs to display
-     * @param search Filter jobs names by search term
-     * @param nzoIds Filter jobs by nzo_ids
-     * @returns
+     * @param start - Index of job to start at
+     * @param limit - Number of jobs to display
+     * @param search - Filter jobs names by search term
+     * @param nzoIds - Filter jobs by nzo_ids
+     * @returns {@link Queue}
      * @throws {Error} throws error if unable to reach SABnzbd server
      */
     async queue(start: number|undefined = undefined, limit: number|undefined = undefined, search: string|undefined = undefined, nzoIds: string[]|undefined = undefined) {
@@ -49,8 +49,8 @@ export class Client {
 
     /**
      * Pauses the whole queue
-     * @returns true or false depending on if the call was successful
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queuePause(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -61,8 +61,8 @@ export class Client {
 
     /**
      * Resume the whole queue
-     * @returns true or false depending on if the call was successful
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queueResume(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -73,10 +73,10 @@ export class Client {
 
     /**
      * Sort the queue by {@link SortOptions.AverageAge}, {@link SortOptions.Name} or {@link SortOptions.Size} in Ascending or Descending order.
-     * @param sortBy 
-     * @param ascending Ascending or false for Descending order
-     * @returns true or false dpending on if the call was successful
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @param sortBy - The option to sort queue by
+     * @param ascending - Ascending or false for Descending order
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queueSort(sortBy: SortOptions, ascending: boolean): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -87,9 +87,9 @@ export class Client {
 
     /**
      * Remove all jobs from the queue, or only the ones matching search. Returns nzb_id of the jobs removed.
-     * @param search Filter jobs by search term
-     * @returns Array of nzb_id's of the jobs removed, or undefined if call was unsuccessful
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @param search - Filter jobs by search term
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queuePurge(search: string|undefined = undefined): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
@@ -105,10 +105,10 @@ export class Client {
 
     /**
      * Set an end-of-queue action
-     * @param action Either one of {@link CompleteAction} or a string contaning the name of a script to execute. Prefix the script name
+     * @param action - Either one of {@link CompleteAction} or a string contaning the name of a script to execute. Prefix the script name
      * with script_ example: script_process.py
-     * @returns true or false depending if the call was successful
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changeCompleteAction(action: CompleteAction|string): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -119,16 +119,15 @@ export class Client {
 
     /**
      * Add NZB using an URL that needs to be accessible by SABnzbd, so make sure to include authentication information if the Indexer requires it. 
-     * @param url URL of the NZB file to add
-     * @param name Name of the job, if empty NZB filename is used.
-     * @param password Password to use when unpacking the job.
-     * @param cat Category to be assigned, * means Default. List of available categories can be retrieved from {@link getCats}.
-     * @param script Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from {@link getScripts}.
-     * @param priority Priority to be assigned, one of {@link Priority}
-     * @param postProcess Post-processing options, one of {@link PostProcessing}
-     * @returns The nzo_id on success
-     * @throw {Error} throws error if adding was unsucessful
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @param url - URL of the NZB file to add
+     * @param name - Name of the job, if empty NZB filename is used.
+     * @param password - Password to use when unpacking the job.
+     * @param cat - Category to be assigned, * means Default. List of available categories can be retrieved from {@link getCats}.
+     * @param script - Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from {@link getScripts}.
+     * @param priority - Priority to be assigned, one of {@link Priority}
+     * @param postProcess - Post-processing options, one of {@link PostProcessing}
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     addUrl(url: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined,
                  priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise<Results> {
@@ -150,16 +149,15 @@ export class Client {
 
     /**
      * Upload NZB from a location on the file system that SABnzbd can access. 
-     * @param filePath Path to the file to add
-     * @param name Name of the job, if empty NZB filename is used.
-     * @param password Password to use when unpacking the job.
-     * @param cat Category to be assigned, * means Default. List of available categories can be retrieved from {@link getCats}.
-     * @param script Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from {@link getScripts}.
-     * @param priority Priority to be assigned, one of {@link Priority}
-     * @param postProcess Post-processing options, one of {@link PostProcessing}
-     * @returns The nzo_id on success
-     * @throw {Error} throws error if adding was unsucessful
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @param filePath - Path to the file to add
+     * @param name - Name of the job, if empty NZB filename is used.
+     * @param password - Password to use when unpacking the job.
+     * @param cat - Category to be assigned, * means Default. List of available categories can be retrieved from {@link getCats}.
+     * @param script - Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from {@link getScripts}.
+     * @param priority - Priority to be assigned, one of {@link Priority}
+     * @param postProcess - Post-processing options, one of {@link PostProcessing}
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     addPath(filePath: string, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined,
                   priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise<Results> {
@@ -182,16 +180,15 @@ export class Client {
     /**
      * Upload NZB using POST multipart/form-data with the FormData library. You must
      * set the file data to either the name or nzbfile field.
-     * @param formData The FormData with the file in either the name or nzbfile field.
-     * @param name Name of the job, if empty NZB filename is used.
-     * @param password Password to use when unpacking the job.
-     * @param cat Category to be assigned, * means Default. List of available categories can be retrieved from {@link getCats}.
-     * @param script Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from {@link getScripts}.
-     * @param priority Priority to be assigned, one of {@link Priority}
-     * @param postProcess Post-processing options, one of {@link PostProcessing}
-     * @returns The nzo_id on success
-     * @throw {Error} throws error if adding was unsucessful
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @param formData - The FormData with the file in either the name or nzbfile field.
+     * @param name - Name of the job, if empty NZB filename is used.
+     * @param password - Password to use when unpacking the job.
+     * @param cat - Category to be assigned, * means Default. List of available categories can be retrieved from {@link getCats}.
+     * @param script - Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from {@link getScripts}.
+     * @param priority - Priority to be assigned, one of {@link Priority}
+     * @param postProcess - Post-processing options, one of {@link PostProcessing}
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     addFile(formData: FormData, name: string|undefined = undefined, password: string|undefined = undefined, cat: string|undefined = undefined, script: string|undefined = undefined,
                   priority: Priority|undefined = undefined, postProcess: PostProcessing|undefined = undefined): Promise<Results> {
@@ -227,9 +224,9 @@ export class Client {
 
     /**
      * Pause a single job based on its nzo_id. Returns list of affected nzo_ids.
-     * @param id 
-     * @returns List of affected nzo_ids
-     * @throw {Error} throws error if unable to reach SABnzbd server
+     * @param id - The nzo_id of the Job to pause
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobPause(id: string): Promise<Results> {
         return new Promise<Results>(async resolve =>{
@@ -240,8 +237,9 @@ export class Client {
 
     /**
      * Resumes a single job based on its nzo_id. Returns list of affected nzo_ids.
-     * @param id 
-     * @returns List of affected nzo_ids
+     * @param id - The nzo_id of the Job to resume 
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobResume(id: string): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -252,8 +250,9 @@ export class Client {
 
     /**
      * Delets jobs based on its nzo_id. Returns list of affected nzo_ids.
-     * @param id Either a string containing one nzo_id or a array of nzo_ids
-     * @returns List of affected nzo_ids
+     * @param id - Either a string containing one nzo_id or a array of nzo_ids
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobDelete(id: string|string[]): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -269,7 +268,8 @@ export class Client {
 
     /**
      * Delete all jobs
-     * @returns List of affected nzo_ids
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobDeleteAll(): Promise<Results> {
         return new Promise<Results>(async resolve => {
@@ -278,6 +278,14 @@ export class Client {
         });
     }
 
+    /**
+     * Job's can be switched by providing 2 nzo_id, firstId is the item you want to move, secondId is the id of the job where 
+     * you want to put value one above, shifting job secondId down.
+     * @param firstId - nzo_id of job to move
+     * @param secondId - nzo_id of where you want to put the job, shifting this job down.
+     * @returns 
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     jobMove(firstId: string, secondId: string): Promise<any> {
         return new Promise<any>(async resolve => {
             let results: Results = await this.methodCall("switch", {value: firstId, value2: secondId});
@@ -285,6 +293,14 @@ export class Client {
         });
     }
 
+    /**
+     * Change name and optionally the password of job with nzo_id.
+     * @param id - nzo_id of the Job
+     * @param newName - New name for the job
+     * @param password - Optional password to be used during unpacking
+     * @returns {@link Results.Status} set to true or false if the call was successful
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     jobChangeName(id: string, newName: string, password: string|undefined): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let searchParams = new URLSearchParams();
@@ -298,6 +314,13 @@ export class Client {
         });
     }
 
+    /**
+     * Change category of job with nzo_id. List of available categories can be retrieved from {@link getCats}.
+     * @param id - The nzo_id of the Job to change
+     * @param category - The name of the category
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     changeCat(id: string, category: string): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("change_cat", {value: id, value2: category});
@@ -305,6 +328,13 @@ export class Client {
         });
     }
 
+    /**
+     * Change script of job with nzo_id. List of available scripts can be retrieved from {@link getScripts}.
+     * @param id - The nzo_id of the Job to change
+     * @param script - The script name
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     changeScript(id: string, script: string): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("change_script", {value: id, value2: script});
@@ -312,6 +342,13 @@ export class Client {
         });
     }
 
+    /**
+     * Change priority of job.
+     * @param id - The nzo_id of the Job to change
+     * @param priority - The priority
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     changePriority(id: string, priority: Priority): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("queue", {name: priority, value: id, value2: priority});
@@ -319,6 +356,13 @@ export class Client {
         });
     }
 
+    /**
+     * Change post-processing of job.
+     * @param id - The nzo_id of the Job to change
+     * @param postProcessing - The PostProcessing level
+     * @returns {@link Results} containing the status and affected nzo_ids.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     changePostProcessing(id: string, postProcessing: PostProcessing): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("change_opts", {value: id, value2: postProcessing});
@@ -326,6 +370,12 @@ export class Client {
         });
     }
 
+    /**
+     * Get files of job
+     * @param id - The nzo_id of the Job
+     * @returns Any array of {@link File}
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     getFiles(id: string): Promise<File[]> {
         return new Promise<File[]>(async resolve => {
             let results = await this.methodCall("get_files", {value: id});
@@ -333,6 +383,11 @@ export class Client {
         });
     }
 
+    /**
+     * Get version of running SABnzbd
+     * @returns String containing the version information
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     version(): Promise<string> {
         return new Promise<string>(async (resolve, reject) => {
             let results = await this.methodCall("version");
@@ -343,6 +398,11 @@ export class Client {
         });
     }
 
+    /**
+     * Get authentication methods available for interaction with the API
+     * @returns An array of auth methods
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     auth(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
             let results = await this.methodCall("auth");
@@ -353,6 +413,11 @@ export class Client {
         });
     }
 
+    /**
+     * Get all active warnings
+     * @returns An array of {@link ErrorWarning} describing all warnings.
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     async warnings(): Promise<ErrorWarning[]> {
         return new Promise<ErrorWarning[]>(async (resolve, reject) => {
             let results = await this.methodCall("warnings");
@@ -368,6 +433,11 @@ export class Client {
         });
     }
 
+    /**
+     * Clear all active warnings
+     * @returns {@link Results} containing the status
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     warningsClear(): Promise<Results> {
         return new Promise<Results>(async resolve => {
             let results: Results = await this.methodCall("warnings", {name: "clear"});
@@ -375,6 +445,11 @@ export class Client {
         });
     }
 
+    /**
+     * Get all categories
+     * @returns An array of strings containing the categories
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     getCats(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
             let results = await this.methodCall("get_cats");
@@ -386,6 +461,11 @@ export class Client {
         });
     }
 
+    /**
+     * Get all scripts
+     * @returns An array of strings containing the scripts
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     getScripts(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
             let results = await this.methodCall("get_scripts");
@@ -396,6 +476,11 @@ export class Client {
         });
     }
 
+    /**
+     * Return download statistics in bytes, total and per-server.
+     * @returns {@link Stats} containing all the statistic information
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     serverStats(): Promise<Stats> {
         return new Promise<Stats>(async (resolve, reject) => {
             let results = await this.methodCall("server_stats");
@@ -436,6 +521,13 @@ export class Client {
         });
     }
 
+    /**
+     * You can read the whole configuration, a sub-set or a single setting.
+     * @param section - Section of the config item
+     * @param keyword - The config item
+     * @returns Config item in JSON object
+     * @throw {Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
     getConfig(section: string|undefined = undefined, keyword: string|undefined = undefined): Promise<any> {
         return new Promise<any>(async resolve => {
             let options: any    = {};
@@ -449,6 +541,11 @@ export class Client {
         });
     }
 
+    /**
+     * Set configuration option
+     * @param args JSON object with fields section, keyword, and value
+     * @returns JSON object with new config options if set
+     */
     setConfig(args: any): Promise<any> {
         return new Promise<any>(async resolve => {
             let results = await this.methodCall("set_config", args);
@@ -456,6 +553,11 @@ export class Client {
         });
     }
 
+    /**
+     * Reset config item to default value
+     * @param keyword 
+     * @returns 
+     */
     setConfigDefault(keyword: string|string[]): Promise<Results> {
         return new Promise<Results>(async resolve => {
             if( keyword instanceof Array ) {
