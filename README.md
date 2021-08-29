@@ -69,4 +69,3 @@ client.addUrl(formData).then(results => {
 * Status information (added in SABnzbd v3.4.0, currently in development)
 * Orphaned Jobs
 * Examples
-* Test browser compatibility
