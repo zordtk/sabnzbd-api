@@ -7,6 +7,7 @@ import {Stats,ErrorType,ErrorWarning,ServerStats,Queue,QueueSlot,CompleteAction,
 import FormData = require("form-data");
 import { resolve } from "path/posix";
 import { resolveCaa } from "dns";
+import { rejects } from "assert";
 
 /**
  * The {@link https://sabnzbd.org|SABnzbd} API Client.
@@ -23,12 +24,6 @@ export class Client {
      * @private
      */
     private mApiKey: string;
-
-    /**
-     * Version of the SABnzbd client we are communicating with
-     * @private
-     */
-    private mVersion: string;
 
     /**
      * Create new API client connecting to the given host using the supplied apiKey.
@@ -51,11 +46,6 @@ export class Client {
     constructor(host: string, apiKey: string) {
         this.mHost      = host;
         this.mApiKey    = apiKey;
-        this.mVersion   = '';
-
-        this.version().then(version => {
-            this.mVersion = version;
-        });
     }
 
     /**
@@ -68,19 +58,25 @@ export class Client {
      * @returns {@link Queue}
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server
      */
-    async queue(start?: number, limit?: number, search?: string, nzoIds?: string[]) {
-        let searchParams = new URLSearchParams();
-        if( start )
-            searchParams.append("start", String(start));
-        if( limit )
-            searchParams.append("limit", String(limit));
-        if( search ) 
-            searchParams.append("search", search);
-        if( nzoIds ) 
-            searchParams.append("nzo_ids", nzoIds.join(","));
-        
-        let resultsObj = await this.methodCall("queue", searchParams);
-        return <Queue>resultsObj.queue;
+    queue(start?: number, limit?: number, search?: string, nzoIds?: string[]): Promise<Queue> {
+        return new Promise<Queue>(async (resolve, reject) => {
+            try {
+                let searchParams = new URLSearchParams();
+                if( start )
+                    searchParams.append("start", String(start));
+                if( limit )
+                    searchParams.append("limit", String(limit));
+                if( search ) 
+                    searchParams.append("search", search);
+                if( nzoIds ) 
+                    searchParams.append("nzo_ids", nzoIds.join(","));
+                
+                let resultsObj = await this.methodCall("queue", searchParams);
+                resolve(<Queue>resultsObj.queue);
+            } catch( error ) {
+                reject(error);
+            }
+        });
     }
 
     /**
@@ -89,9 +85,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queuePause(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("pause");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("pause");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -101,9 +101,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queueResume(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("resume");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("resume");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -115,9 +119,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     queueSort(sortBy: SortOptions, ascending: boolean): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("queue", {name: "sort", "dir": (ascending ? "asc" : "desc"), sort: sortBy});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("queue", {name: "sort", "dir": (ascending ? "asc" : "desc"), sort: sortBy});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -129,13 +137,17 @@ export class Client {
      */
     queuePurge(search?: string): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
-            let searchParams = new URLSearchParams();
-            searchParams.append("name", "purge");
-            searchParams.append("del_files", "1");
-            if( search ) searchParams.append("search", search);
+            try {
+                let searchParams = new URLSearchParams();
+                searchParams.append("name", "purge");
+                searchParams.append("del_files", "1");
+                if( search ) searchParams.append("search", search);
 
-            let results: Results = await this.methodCall("queue", searchParams);
-            resolve(results);
+                let results: Results = await this.methodCall("queue", searchParams);
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -147,9 +159,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changeCompleteAction(action: CompleteAction|string): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("change_complete_action", {value: action});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("change_complete_action", {value: action});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -167,18 +183,22 @@ export class Client {
      */
     addUrl(url: string, name?: string, password?: string, cat?: string, script?: string, priority?: Priority, postProcess?: PostProcessing): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
-            let searchParams = new URLSearchParams();
+            try {
+                let searchParams = new URLSearchParams();
 
-            searchParams.append("name", url);
-            if( name )          searchParams.append("nzbname", name);
-            if( password )      searchParams.append("password", password);
-            if( cat)            searchParams.append("cat", cat);
-            if( script )        searchParams.append("script", script);
-            if( priority )      searchParams.append("priority", priority.toString());
-            if( postProcess )   searchParams.append("pp", postProcess.toString());
-            
-            let results: Results = await this.methodCall("addurl", searchParams);
-            resolve(results);
+                searchParams.append("name", url);
+                if( name )          searchParams.append("nzbname", name);
+                if( password )      searchParams.append("password", password);
+                if( cat)            searchParams.append("cat", cat);
+                if( script )        searchParams.append("script", script);
+                if( priority )      searchParams.append("priority", priority.toString());
+                if( postProcess )   searchParams.append("pp", postProcess.toString());
+                
+                let results: Results = await this.methodCall("addurl", searchParams);
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -196,18 +216,22 @@ export class Client {
      */
     addPath(filePath: string, name?: string, password?: string, cat?: string, script?: string, priority?: Priority, postProcess?: PostProcessing): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
-            let searchParams = new URLSearchParams();
+            try {
+                let searchParams = new URLSearchParams();
 
-            searchParams.append("name", filePath);
-            if( name )          searchParams.append("nzbname", name);
-            if( password )      searchParams.append("password", password);
-            if( cat)            searchParams.append("cat", cat);
-            if( script )        searchParams.append("script", script);
-            if( priority )      searchParams.append("priority", priority.toString());
-            if( postProcess )   searchParams.append("pp", postProcess.toString());
-            
-            let results: Results = await this.methodCall("addlocalfile", searchParams);
-            resolve(results);
+                searchParams.append("name", filePath);
+                if( name )          searchParams.append("nzbname", name);
+                if( password )      searchParams.append("password", password);
+                if( cat)            searchParams.append("cat", cat);
+                if( script )        searchParams.append("script", script);
+                if( priority )      searchParams.append("priority", priority.toString());
+                if( postProcess )   searchParams.append("pp", postProcess.toString());
+                
+                let results: Results = await this.methodCall("addlocalfile", searchParams);
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -237,21 +261,21 @@ export class Client {
             if( priority )      formData.append("priority", priority.toString());
             if( postProcess )   formData.append("pp", postProcess.toString());
 
-            try {
-                got.post(`${this.mHost}/api`, {body: formData}).then(response => {
-                    if( response.statusCode === 200 ) {
+            got.post(`${this.mHost}/api`, {body: formData}).then(response => {
+                if( response.statusCode === 200 ) {
+                    try {
                         let resultObject: Results = JSON.parse(response.body);
                         resolve(resultObject);
+                    } catch( error ) {
+                        reject(new Error('Error parsing response as JSON'));
                     }
-                }).catch(error => {
-                    if( error instanceof Error )
-                        reject(new Error(`Error accessing SABnzbd host: ${error.message}`));
-                    else
-                        reject(new Error('Error accessing SABnzbd host'));
-                });
-            } catch( error ) {
-                reject(new Error('Error parsing response as JSON'));
-            }
+                }
+            }).catch(error => {
+                if( error instanceof Error )
+                    reject(new Error(`Error accessing SABnzbd host: ${error.message}`));
+                else
+                    reject(new Error('Error accessing SABnzbd host'));
+            });
         });
     }
 
@@ -262,9 +286,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobPause(id: string): Promise<Results> {
-        return new Promise<Results>(async resolve =>{
-            let results: Results = await this.methodCall("queue", {name: "pause", value: id});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("queue", {name: "pause", value: id});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -275,9 +303,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobResume(id: string): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results = await this.methodCall("queue", {name: "resume", value: id});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results = await this.methodCall("queue", {name: "resume", value: id});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -288,13 +320,17 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobDelete(id: string|string[]): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            if( id instanceof Array ) {
-                let results: Results = await this.methodCall("queue", {name: "delete", value: id.join(",")});
-                resolve(results);
-            } else {
-                let results: Results = await this.methodCall("queue", {name: "delete", value: id});
-                resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                if( id instanceof Array ) {
+                    let results: Results = await this.methodCall("queue", {name: "delete", value: id.join(",")});
+                    resolve(results);
+                } else {
+                    let results: Results = await this.methodCall("queue", {name: "delete", value: id});
+                    resolve(results);
+                }
+            } catch( error ) {
+                reject(error);
             }
         });
     }
@@ -305,9 +341,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobDeleteAll(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("queue", {name: "delete", value: "all", del_files: 1});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try  {
+                let results: Results = await this.methodCall("queue", {name: "delete", value: "all", del_files: 1});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -320,9 +360,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobMove(firstId: string, secondId: string): Promise<any> {
-        return new Promise<any>(async resolve => {
-            let results: Results = await this.methodCall("switch", {value: firstId, value2: secondId});
-            resolve(results);
+        return new Promise<any>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("switch", {value: firstId, value2: secondId});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -335,15 +379,19 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     jobChangeName(id: string, newName: string, password?: string): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let searchParams = new URLSearchParams();
-            searchParams.append("name", "rename");
-            searchParams.append("value", id);
-            searchParams.append("value2", newName);
-            if( password ) searchParams.append("value3", password);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let searchParams = new URLSearchParams();
+                searchParams.append("name", "rename");
+                searchParams.append("value", id);
+                searchParams.append("value2", newName);
+                if( password ) searchParams.append("value3", password);
 
-            let results: Results = await this.methodCall("queue", searchParams);
-            resolve(results);
+                let results: Results = await this.methodCall("queue", searchParams);
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -355,9 +403,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changeCat(id: string, category: string): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("change_cat", {value: id, value2: category});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("change_cat", {value: id, value2: category});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -369,9 +421,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changeScript(id: string, script: string): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("change_script", {value: id, value2: script});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("change_script", {value: id, value2: script});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -383,9 +439,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changePriority(id: string, priority: Priority): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("queue", {name: priority, value: id, value2: priority});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("queue", {name: priority, value: id, value2: priority});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -397,9 +457,13 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     changePostProcessing(id: string, postProcessing: PostProcessing): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("change_opts", {value: id, value2: postProcessing});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("change_opts", {value: id, value2: postProcessing});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -410,15 +474,20 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     getFiles(id: string): Promise<File[]> {
-        return new Promise<File[]>(async resolve => {
-            let results = await this.methodCall("get_files", {value: id});
-            resolve(<File[]>results.files);
+        return new Promise<File[]>(async (resolve, reject) => {
+            try{
+                let results = await this.methodCall("get_files", {value: id});
+                resolve(<File[]>results.files);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Full history output with details about all jobs. The queue and the history output share many common fields, but the history also contains 
      * statistiscs about how much has been downloaded in the past day, week, month and total.
+     * @category History
      * @param start - Index of job to start at
      * @param limit - Number of jobs to display
      * @param category - Only return jobs in this category
@@ -430,43 +499,53 @@ export class Client {
      * @returns The history
      */
     history(start?: number, limit?: number, category?: string, search?: string, nzoIds?: string[], failedOnly?: boolean, lastHistoryUpdate?: boolean): Promise<History> {
-        return new Promise<History>(async resolve => {
-            let searchParams = new URLSearchParams();
-            if( start )             searchParams.append("start", start.toString());
-            if( limit )             searchParams.append("limit", limit.toString());
-            if( category )          searchParams.append("category", category);
-            if( search )            searchParams.append("search", search);
-            if( nzoIds )            searchParams.append("nzo_ids", nzoIds.join(','));
-            if( failedOnly )        searchParams.append("failed_only", (failedOnly ? '1':'0'));
-            if( lastHistoryUpdate ) searchParams.append("last_history_update", (lastHistoryUpdate ? '1':'0'));
+        return new Promise<History>(async (resolve, reject) => {
+            try {
+                let searchParams = new URLSearchParams();
+                if( start )             searchParams.append("start", start.toString());
+                if( limit )             searchParams.append("limit", limit.toString());
+                if( category )          searchParams.append("category", category);
+                if( search )            searchParams.append("search", search);
+                if( nzoIds )            searchParams.append("nzo_ids", nzoIds.join(','));
+                if( failedOnly )        searchParams.append("failed_only", (failedOnly ? '1':'0'));
+                if( lastHistoryUpdate ) searchParams.append("last_history_update", (lastHistoryUpdate ? '1':'0'));
 
-            let resultsObj          = await this.methodCall("history", searchParams);
-            let results: History    = resultsObj.history;
-            resolve(results);
+                let resultsObj          = await this.methodCall("history", searchParams);
+                let results: History    = resultsObj.history;
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Retry history item(s) based on nzo_id Optionally provide a password for unpacking.
+     * @category History
      * @param id - nzo_id of the history item
      * @param password - Password for unpacking
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     historyRetry(id: string, password?: string): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let searchParams = new URLSearchParams();
-            searchParams.append("value", id);
-            if( password ) searchParams.append("password", password);
-            
-            let results: Results = await this.methodCall("retry", searchParams);
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try{
+                let searchParams = new URLSearchParams();
+                searchParams.append("value", id);
+                if( password ) searchParams.append("password", password);
+                
+                let results: Results = await this.methodCall("retry", searchParams);
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Retry history item(s) based on nzo_id and an additional NZB set to the nzbfile field. 
      * Optionally provide a password for unpacking.
+     * @category History
      * @param id - nzo_id of the history item
      * @param formData - New NZB to upload
      * @param password - Password for unpacking
@@ -482,354 +561,459 @@ export class Client {
             formData.append("nzbfile", formData);
             if( password ) formData.append("password", password);
             
-            try {
-                got.post(`${this.mHost}/api`, {body: formData}).then(response => {
-                    if( response.statusCode === 200 ) {
+            got.post(`${this.mHost}/api`, {body: formData}).then(response => {
+                if( response.statusCode === 200 ) {
+                    try {
                         let resultObject: Results = JSON.parse(response.body);
                         resolve(resultObject);
+                    } catch( error ) {
+                        reject(new Error('Error parsing response as JSON'));
                     }
-                }).catch(error => {
-                    if( error instanceof Error )
-                        reject(new Error(`Error accessing SABnzbd host: ${error.message}`));
-                    else
-                        reject(new Error('Error accessing SABnzbd host'));
-                });
-            } catch( error ) {
-                reject(new Error('Error parsing response as JSON'));
-            }
+                }
+            }).catch(error => {
+                if( error instanceof Error )
+                    reject(new Error(`Error accessing SABnzbd host: ${error.message}`));
+                else
+                    reject(new Error('Error accessing SABnzbd host'));
+            });
         });
     }
 
     /**
      * Delete history items(s) based on nzo_id
+     * @category History
      * @param id - nzo_id of the item(s) to delete
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     historyDelete(id: string|string[]): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
-            let ids = id;
-            if( id instanceof Array )
-                ids = id.join(',');
-            let results: Results = await this.methodCall("history", {name: "delete", value: ids});
-            resolve(results);
+            try {
+                let ids = id;
+                if( id instanceof Array )
+                    ids = id.join(',');
+                let results: Results = await this.methodCall("history", {name: "delete", value: ids});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Delete all history items(s)
+     * @category History
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
      historyDeleteAll(): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
-            let results: Results = await this.methodCall("history", {name: "delete", value: 'all'});
-            resolve(results);
+            try {
+                let results: Results = await this.methodCall("history", {name: "delete", value: 'all'});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Delete all failed history items(s)
+     * @category History
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
      historyDeleteAllFailed(): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
-            let results: Results = await this.methodCall("history", {name: "delete", value: 'failed'});
-            resolve(results);
+            try {
+                let results: Results = await this.methodCall("history", {name: "delete", value: 'failed'});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Get version of running SABnzbd
+     * @category Misc
      * @returns String containing the version information
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     version(): Promise<string> {
         return new Promise<string>(async (resolve, reject) => {
-            let results = await this.methodCall("version");
-            if( results.version )
-                resolve(results.version);
-            else
-                reject(new Error("Invalid response from SABnzbd"));
+            try {
+                let results = await this.methodCall("version");
+                if( results.version )
+                    resolve(results.version);
+                else
+                    reject(new Error("Invalid response from SABnzbd"));
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Get authentication methods available for interaction with the API
+     * @category Misc
      * @returns An array of auth methods
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     auth(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
-            let results = await this.methodCall("auth");
-            if( results.auth )
-                resolve(results.auth);
-            else
-                reject(new Error("Invalid response from SABnzbd"));
+            try {
+                let results = await this.methodCall("auth");
+                if( results.auth )
+                    resolve(results.auth);
+                else
+                    reject(new Error("Invalid response from SABnzbd"));
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Get all active warnings
+     * @category Misc
      * @returns An array of {@link ErrorWarning} describing all warnings.
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
-    async warnings(): Promise<ErrorWarning[]> {
+    warnings(): Promise<ErrorWarning[]> {
         return new Promise<ErrorWarning[]>(async (resolve, reject) => {
-            let results = await this.methodCall("warnings");
-            let warnings: ErrorWarning[] = [];
+            try {
+                let results = await this.methodCall("warnings");
+                let warnings: ErrorWarning[] = [];
 
-            for( let result of results ) {
-                if( !result.text || result.type !== "WARNING" || !result.time )
-                    reject(new Error("Invalid response from SABnzbd"));
-                warnings.push({text: result.text, type: ErrorType.Warning, time: result.time});    
+                for( let result of results ) {
+                    if( !result.text || result.type !== "WARNING" || !result.time )
+                        reject(new Error("Invalid response from SABnzbd"));
+                    warnings.push({text: result.text, type: ErrorType.Warning, time: result.time});    
+                }
+
+                resolve(warnings);
+            } catch( error ) {
+                reject(error);
             }
-
-            resolve(warnings);
         });
     }
 
     /**
      * Clear all active warnings
+     * @category Misc
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     warningsClear(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("warnings", {name: "clear"});
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("warnings", {name: "clear"});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Get all categories
+     * @category Misc
      * @returns An array of strings containing the categories
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     getCats(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
-            let results = await this.methodCall("get_cats");
+            try {
+                let results = await this.methodCall("get_cats");
 
-            if( !results.categories )
-                reject(new Error("Invalid response from SABnzbd"));
-            else
-                resolve(results.categories);
+                if( !results.categories )
+                    reject(new Error("Invalid response from SABnzbd"));
+                else
+                    resolve(results.categories);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Get all scripts
+     * @category Misc
      * @returns An array of strings containing the scripts
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     getScripts(): Promise<string[]> {
         return new Promise<string[]>(async (resolve, reject) => {
-            let results = await this.methodCall("get_scripts");
-            if( !results.scripts )
-                reject(new Error("Invalid response from SABnzbd"));
-            else
-                resolve(results.scripts);
+            try {
+                let results = await this.methodCall("get_scripts");
+                if( !results.scripts )
+                    reject(new Error("Invalid response from SABnzbd"));
+                else
+                    resolve(results.scripts);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Return download statistics in bytes, total and per-server.
+     * @category Stats
      * @returns {@link Stats} containing all the statistic information
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     serverStats(): Promise<Stats> {
         return new Promise<Stats>(async (resolve, reject) => {
-            let results = await this.methodCall("server_stats");
+            try {
+                let results = await this.methodCall("server_stats");
 
-            let stats: Stats = {
-                day: results.day,
-                week: results.week,
-                month: results.month,
-                total: results.total,
-                servers: new Map<string, ServerStats>()
-            };
-
-            for( let serverName in results.servers ) {
-                let serverResult = results.servers[serverName];
-                let server: ServerStats = {
-                    day: serverResult.day,
-                    week: serverResult.week,
-                    month: serverResult.month,
-                    total: serverResult.total,
-                    daily: new Map<string, number>(),
-                    articles_tried: new Map<string, number>(),
-                    articles_success: new Map<string, number>()
+                let stats: Stats = {
+                    day: results.day,
+                    week: results.week,
+                    month: results.month,
+                    total: results.total,
+                    servers: new Map<string, ServerStats>()
                 };
 
-                for( let dailyDate in serverResult.daily ) 
-                    server.daily.set(dailyDate, serverResult.daily[dailyDate]);
+                for( let serverName in results.servers ) {
+                    let serverResult = results.servers[serverName];
+                    let server: ServerStats = {
+                        day: serverResult.day,
+                        week: serverResult.week,
+                        month: serverResult.month,
+                        total: serverResult.total,
+                        daily: new Map<string, number>(),
+                        articles_tried: new Map<string, number>(),
+                        articles_success: new Map<string, number>()
+                    };
 
-                for( let articlesTriedDate in serverResult.articles_tried )
-                    server.articles_tried.set(articlesTriedDate, serverResult.articles_tried[articlesTriedDate]);
+                    for( let dailyDate in serverResult.daily ) 
+                        server.daily.set(dailyDate, serverResult.daily[dailyDate]);
 
-                    for( let articlesSuccessDate in serverResult.articles_success )
-                        server.articles_success.set(articlesSuccessDate, serverResult.articles_tried[articlesSuccessDate]);
+                    for( let articlesTriedDate in serverResult.articles_tried )
+                        server.articles_tried.set(articlesTriedDate, serverResult.articles_tried[articlesTriedDate]);
 
-                stats.servers.set(serverName, server);
+                        for( let articlesSuccessDate in serverResult.articles_success )
+                            server.articles_success.set(articlesSuccessDate, serverResult.articles_tried[articlesSuccessDate]);
+
+                    stats.servers.set(serverName, server);
+                }
+
+                resolve(stats);
+            } catch( error ) {
+                reject(error);
             }
-
-            resolve(stats);
         });
     }
 
     /**
      * You can read the whole configuration, a sub-set or a single setting.
+     * @category Config
      * @param section - Section of the config item
      * @param keyword - The config item
      * @returns Config item in JSON object
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     getConfig(section?: string, keyword?: string): Promise<any> {
-        return new Promise<any>(async resolve => {
-            let options: any    = {};
-            if( section )
-                options.section = section;
-            if( keyword )
-                options.keyword = keyword;
+        return new Promise<any>(async (resolve, reject) => {
+            try {
+                let options: any    = {};
+                if( section )
+                    options.section = section;
+                if( keyword )
+                    options.keyword = keyword;
 
-            let serverConfig = await this.methodCall("get_config", options);
-            resolve(serverConfig);
+                let serverConfig = await this.methodCall("get_config", options);
+                resolve(serverConfig);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Set configuration option
+     * @category Config
      * @param args JSON object with fields section, keyword, and value
      * @returns JSON object with new config options if set
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     setConfig(args: any): Promise<any> {
-        return new Promise<any>(async resolve => {
-            let results = await this.methodCall("set_config", args);
-            resolve(results);
+        return new Promise<any>(async (resolve, reject) => {
+            try {
+                let results = await this.methodCall("set_config", args);
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Reset config item to default value
+     * @category Config
      * @param keyword 
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     setConfigDefault(keyword: string|string[]): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            if( keyword instanceof Array ) {
-                let searchParams = new URLSearchParams();
-                for( let value of keyword ) 
-                    searchParams.append("keyword", value);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                if( keyword instanceof Array ) {
+                    let searchParams = new URLSearchParams();
+                    for( let value of keyword ) 
+                        searchParams.append("keyword", value);
 
-                let results: Results = await this.methodCall("set_config_default", searchParams);
-                resolve(results);
-            } else {
-                let results: Results = await this.methodCall("set_config_default", {keyword: keyword});
-                resolve(results);
+                    let results: Results = await this.methodCall("set_config_default", searchParams);
+                    resolve(results);
+                } else {
+                    let results: Results = await this.methodCall("set_config_default", {keyword: keyword});
+                    resolve(results);
+                }
+            } catch( error ) {
+                reject(error);
             }
         });
     }
 
     /**
      * Translate any text known to SABnzbd from English to the locale setting of the user.
+     * @category Misc
      * @param text - The text to translate
      * @returns The translated text
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     translateText(text: string): Promise<string> {
         return new Promise<string>(async (resolve, reject) => {
-            let results = await this.methodCall("translate", {value: text});
-            if( results.value )
-                return results.value;
-            else
-	            reject(new Error('Error in API call' + (results.error ? `: ${results.error}` : '')));
+            try {
+                let results = await this.methodCall("translate", {value: text});
+                if( results.value )
+                    resolve(results.value);
+                else
+                    reject(new Error('Error in API call' + (results.error ? `: ${results.error}` : '')));
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Shutdown SABnzbd
+     * @category Misc
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     shutdown(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("shutdown");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("shutdown");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Restart SABnzbd
+     * @category Misc
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     restart(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("restart");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("restart");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Restart SABnzbd and perform a queue repair 
+     * @category Misc
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     restartRepair(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("restart_repair");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("restart_repair");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Pause post-processing queue
+     * @category Misc
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     pausePostProcessing(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("pause_pp");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("pause_pp");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Fetch and process all RSS feeds
+     * @category Misc
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     rssNow(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("rss_now");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("rss_now");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Scan Watched Folder now
+     * @category Misc
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     watchedNow(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("watched_now");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("watched_now");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
     /**
      * Reset the user defined quota to 0
+     * @category Misc
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     resetQuota(): Promise<Results> {
-        return new Promise<Results>(async resolve => {
-            let results: Results = await this.methodCall("reset_quota");
-            resolve(results);
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("reset_quota");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
         });
     }
 
@@ -861,25 +1045,21 @@ export class Client {
             apiUrl.searchParams.append("output", output);
             apiUrl.searchParams.append("apikey", this.mApiKey);
 
-            try {
-                got(apiUrl).then(response => {
-                    if( response.statusCode === 200 ) {
-                        if( output === 'json') {
-                            let responseObject = JSON.parse(response.body);
-                            resolve(responseObject);
-                        } else {
-                            resolve(response.body);
-                        }
+            got(apiUrl).then(response => {
+                if( response.statusCode === 200 ) {
+                    if( output === 'json') {
+                        let responseObject = JSON.parse(response.body);
+                        resolve(responseObject);
+                    } else {
+                        resolve(response.body);
                     }
-                }).catch(error => {
-                    if( error instanceof Error ) 
-                        reject(new Error('Error accessing SABnzbd host: ' + error.message));
-                    else
-                        reject(new Error('Error accessing SABnzbd host'));
-                });
-            } catch( error ) {
-                reject(new Error('Error parsing response as JSON'));
-            }
+                }
+            }).catch(error => {
+                if( error instanceof Error ) 
+                    reject(new Error('Error accessing SABnzbd host: ' + error.message));
+                else
+                    reject(new Error('Error accessing SABnzbd host'));
+            });
         });
     }
 }
