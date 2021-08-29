@@ -62,7 +62,6 @@ client.addUrl(formData).then(results => {
 ```
 
 # Todo
-* History functions
 * Status functions (added in SABnzbd v3.4.0, currently in development)
 * Status information (added in SABnzbd v3.4.0, currently in development)
 * Orphaned Jobs
