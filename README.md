@@ -1,5 +1,5 @@
 # SABnzbd-API
-[SABnzbd](http://sabnzbd.org/) API client written in TypeScript licensed under the MIT. It supports most of the API calls listed in the version 3.1.1 documentation (https://sabnzbd.org/wiki/advanced/api). It's still under active development and will soon support the remaining functions.
+[SABnzbd](http://sabnzbd.org/) API client written in TypeScript licensed under the MIT. It supports most of the API calls listed in the version 3.1.1 documentation (<https://sabnzbd.org/wiki/advanced/api>). It's still under active development and will soon support the remaining functions.
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zordtk/sabnzbd-api/blob/main/LICENSE)  [![npm version](https://img.shields.io/npm/v/sabnzbd-api.svg?style=flat)](https://www.npmjs.com/package/sabnzbd-api) [![CircleCI](https://circleci.com/gh/zordtk/sabnzbd-api.svg?style=shield)](https://circleci.com/gh/zordtk/sabnzbd-api) [![Dependencies](https://img.shields.io/david/zordtk/sabnzbd-api)](https://david-dm.org/zordtk/sabnzbd-api)
 
@@ -10,14 +10,14 @@
 
 # Dependencies
 * TypeScript
-* Got v11.8.2+ (https://github.com/sindresorhus/got)
-* FormData v4.0+ (https://github.com/form-data/form-data)
+* Got v11.8.2+ (<https://github.com/sindresorhus/got>)
+* FormData v4.0+ (<https://github.com/form-data/form-data>)
 
 # Installation
 ```npm install --save sabnzbd-api```
 
 # Documentation
-You can find the API documentation at https://zordtk.github.io/sabnzbd-api/docs/, you should also read SABnzbd's API documentation at https://sabnzbd.org/wiki/advanced/api
+You can find the API documentation at <https://zordtk.github.io/sabnzbd-api/docs/>, you should also read SABnzbd's API documentation at <https://sabnzbd.org/wiki/advanced/api>
 
 # Usage
 #### version()
