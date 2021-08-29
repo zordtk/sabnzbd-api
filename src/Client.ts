@@ -25,6 +25,12 @@ export class Client {
     private mApiKey: string;
 
     /**
+     * Version of the SABnzbd client we are communicating with
+     * @private
+     */
+    private mVersion: string;
+
+    /**
      * Create new API client connecting to the given host using the supplied apiKey.
      * 
      * @example
@@ -45,6 +51,11 @@ export class Client {
     constructor(host: string, apiKey: string) {
         this.mHost      = host;
         this.mApiKey    = apiKey;
+        this.mVersion   = '';
+
+        this.version().then(version => {
+            this.mVersion = version;
+        });
     }
 
     /**
