@@ -5,9 +5,6 @@
 import got from "got";
 import {Stats,ErrorType,ErrorWarning,ServerStats,Queue,QueueSlot,CompleteAction,SortOptions,Priority,PostProcessing,File,Results,History,HistorySlots,HistoryStageLog} from "./Types";
 import FormData = require("form-data");
-import { resolve } from "path/posix";
-import { resolveCaa } from "dns";
-import { rejects } from "assert";
 
 /**
  * The {@link https://sabnzbd.org|SABnzbd} API Client.
