@@ -54,7 +54,7 @@ let client      = new SABnzbd.Client("http://example.com/sabnzbd", "apikey");
 let formData    = new FormData();
 
 formData.append("name", fs.createReadStream("/path/to/file"));
-client.addUrl(formData).then(results => {
+client.addFile(formData).then(results => {
     if( results.status )
         console.log('Added NZB');
     else
