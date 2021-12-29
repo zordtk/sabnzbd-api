@@ -196,3 +196,56 @@ export interface Results {
     position?: number,
     nzo_ids?: string[]
 }
+
+export interface Status {
+    localipv4: string;
+    ipv6?: null;
+    publicipv4: string;
+    dnslookup: string;
+    folders?: (string)[] | null;
+    cpumodel: string;
+    pystone: number;
+    downloaddir: string;
+    downloaddirspeed: number;
+    completedir: string;
+    completedirspeed: number;
+    loglevel: string;
+    logfile: string;
+    configfn: string;
+    nt: boolean;
+    darwin: boolean;
+    helpuri: string;
+    uptime: string;
+    color_scheme: string;
+    webdir: string;
+    active_lang: string;
+    restart_req: boolean;
+    power_options: boolean;
+    pp_pause_event: boolean;
+    pid: number;
+    weblogfile?: null;
+    new_release: boolean;
+    new_rel_url?: null;
+    have_warnings: string;
+    warnings?: (null)[] | null;
+    servers?: (ServersEntity)[] | null;
+}
+
+export interface ServersEntity {
+    servername: string;
+    servertotalconn: number;
+    serverssl: number;
+    serveractiveconn: number;
+    serveroptional: number;
+    serveractive: boolean;
+    servererror: string;
+    serverpriority: number;
+    serverbps: string;
+    serverconnections?: (ServerconnectionsEntity | null)[] | null;
+}
+export interface ServerconnectionsEntity {
+    thrdnum: number;
+    nzo_name: string;
+    nzf_name: string;
+    art_name: string;
+}

@@ -3,7 +3,7 @@
 //   Written By Jeremy Harmon <jeremy.harmon@zoho.com>
 
 import got from "got";
-import {Stats,ErrorType,ErrorWarning,ServerStats,Queue,QueueSlot,CompleteAction,SortOptions,Priority,PostProcessing,File,Results,History,HistorySlots,HistoryStageLog} from "./Types";
+import {Stats,ErrorType,ErrorWarning,ServerStats,Queue,QueueSlot,CompleteAction,SortOptions,Priority,PostProcessing,File,Results,History,HistorySlots,HistoryStageLog,Status} from "./Types";
 import FormData = require("form-data");
 
 /**
@@ -1029,6 +1029,24 @@ export class Client {
             try {
                 let results: Results = await this.methodCall("reset_quota");
                 resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
+     * Get all status information available from SABnzbd.
+     * @param skipDashboard Skip detecting public IPv4 address which can take some time.
+     * @param calculatePerformance Calculate performance measures
+     * @returns {@link Status} 
+     */
+    status(skipDashboard: Boolean = false, calculatePerformance: Boolean = false): Promise<Status> {
+        return new Promise<Status>(async (resolve, reject) => {
+            try {
+                let results = await this.methodCall("status", { "skip_dashboard": skipDashboard, "calculate_performance": calculatePerformance});
+                let status: Status = results['status'];
+                resolve(status);
             } catch( error ) {
                 reject(error);
             }
