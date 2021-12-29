@@ -1076,7 +1076,7 @@ export class Client {
      * @returns {@link Results} containing the status
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
-    statusDeleteOrphan(folder: string): Promise<Results> {
+    statusDeleteOrphaned(folder: string): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
             try {
                 let searchParams = new URLSearchParams();
