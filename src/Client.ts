@@ -1054,6 +1054,23 @@ export class Client {
     }
 
     /**
+     * Unblock server based on servername from the status.
+     * @param name Name of the server to unblock
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    statusUnblockServer(name: string): Promise<Results> {
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let results: Results = await this.methodCall("status", {"name": "unblock_server", value: name});
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
      * Call method on SABnzbd server and parse results as a JSON object if output
      * is json.
      * @private
