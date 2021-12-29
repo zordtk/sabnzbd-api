@@ -157,11 +157,7 @@ export class Client {
     queueSpeedLimit(value: string): Promise<Results> {
         return new Promise<Results>(async (resolve, reject) => {
             try {
-                let searchParams = new URLSearchParams();
-                searchParams.append("name", "speedlimit");
-                searchParams.append("value", value);
-
-                let results: Results = await this.methodCall("config", searchParams);
+                let results: Results = await this.methodCall("config", {name: "speedlimit", value: value});
                 resolve(results);
             } catch( error ) {
                 reject(error);
