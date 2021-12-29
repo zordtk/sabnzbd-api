@@ -65,5 +65,6 @@ client.addFile(formData).then(results => {
 ```
 
 # Todo
-* Status functions (added in SABnzbd v3.4.0, currently in development)
-* Orphaned Jobs
+* Improve documentation
+* More examples
+* Check for any missing API functions
