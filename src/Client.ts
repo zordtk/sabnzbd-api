@@ -149,6 +149,27 @@ export class Client {
     }
 
     /**
+     * Sets the speedlimit to value in percentage of the maximum line speed (set by user).
+     * @param value The speed limit value in either percentage. It can also be followed by K,M to define speedlimit in KB/s,MB/s, respectively.
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    queueSpeedLimit(value: string): Promise<Results> {
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let searchParams = new URLSearchParams();
+                searchParams.append("name", "speedlimit");
+                searchParams.append("value", value);
+
+                let results: Results = await this.methodCall("config", searchParams);
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
      * Set an end-of-queue action
      * @param action - Either one of {@link CompleteAction} or a string contaning the name of a script to execute. Prefix the script name
      * with script_ example: script_process.py
