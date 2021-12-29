@@ -1071,6 +1071,27 @@ export class Client {
     }
 
     /**
+     * Delete orphaned job based on the folder name from the status. 
+     * @param folder Name of the folder
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    statusDeleteOrphan(folder: string): Promise<Results> {
+        return new Promise<Results>(async (resolve, reject) => {
+            try {
+                let searchParams = new URLSearchParams();
+                searchParams.append("name", "delete_orphan");
+                searchParams.append("value", folder);
+
+                let results: Results = await this.methodCall("status", searchParams);
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
      * Call method on SABnzbd server and parse results as a JSON object if output
      * is json.
      * @private
