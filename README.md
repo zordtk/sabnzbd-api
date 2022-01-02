@@ -66,4 +66,3 @@ client.addFile(formData).then(results => {
 
 # Todo
 * Improve documentation
-* More examples
