@@ -1081,6 +1081,23 @@ export class Client {
     }
 
     /**
+     * Get all status information available from SABnzbd.
+     * @returns {@link Status}
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    fullStatus(): Promise<Status> {
+        return new Promise<Status>(async (resolve, reject) => {
+            try {
+                let results = await this.methodCall("fullstatus");
+                let status: Status = results['status'];
+                resolve(status);
+            } catch( error ) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
      * Unblock server based on servername from the status.
      * @param name Name of the server to unblock
      * @returns {@link Results} containing the status
