@@ -865,6 +865,7 @@ export class Client {
     /**
      * The log file is automatically anonymized and a copy of the sabnzbd.ini is attached.
      * @returns The anonymized logs
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     showLog(): Promise<string> {
         return new Promise<string>(async (resolve, reject) => {
@@ -1067,6 +1068,7 @@ export class Client {
      * @param skipDashboard Skip detecting public IPv4 address which can take some time.
      * @param calculatePerformance Calculate performance measures
      * @returns {@link Status} 
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     status(skipDashboard: Boolean = false, calculatePerformance: Boolean = false): Promise<Status> {
         return new Promise<Status>(async (resolve, reject) => {
@@ -1164,6 +1166,7 @@ export class Client {
      * @param args - Either a JSON object or a URLSearchParams object containing the arguments
      * @param output - Output type either json or text
      * @returns JSON object or string containing text depending on output
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      */
     private methodCall(method: string, args?: URLSearchParams|any, output: string = 'json'): Promise<any> {
         return new Promise<any>((resolve, reject) => {
