@@ -557,6 +557,22 @@ export class Client {
     }
 
     /**
+     * Will retry all failed jobs in the history. However, you are not able to supply passwords or extra NZB's.
+     * @returns {@link Results} containing the status
+     * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
+     */
+    historyRetryAll(): Promise<Results> {
+        return new Promise<Results>(async (resolve, reject) => {
+            try{ 
+                let results: Results = await this.methodCall("retry_all");
+                resolve(results);
+            } catch( error ) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
      * Retry history item(s) based on nzo_id and an additional NZB set to the nzbfile field. 
      * Optionally provide a password for unpacking.
      * @category History
