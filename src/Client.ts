@@ -863,6 +863,21 @@ export class Client {
     }
 
     /**
+     * The log file is automatically anonymized and a copy of the sabnzbd.ini is attached.
+     * @returns The anonymized logs
+     */
+    showLog(): Promise<string> {
+        return new Promise<string>(async (resolve, reject) => {
+            try {
+                let log = await this.methodCall("showlog", {}, 'text');
+                resolve(log);
+            } catch( error ) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
      * Set configuration option
      * @category Config
      * @param args JSON object with fields section, keyword, and value
