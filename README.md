@@ -17,7 +17,7 @@
 ```npm install --save sabnzbd-api```
 
 # Documentation
-You can find the API documentation at <https://zordtk.github.io/sabnzbd-api/docs/>, you should also read SABnzbd's API documentation at <https://sabnzbd.org/wiki/advanced/api>
+You can find the API documentation at <https://zordtk.github.io/sabnzbd-api/>, you should also read SABnzbd's API documentation at <https://sabnzbd.org/wiki/advanced/api>
 
 # Usage
 #### version()
