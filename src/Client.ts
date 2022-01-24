@@ -512,7 +512,7 @@ export class Client {
      * @throw {@link https://nodejs.org/api/errors.html#errors_class_error|Error} throws error if unable to reach SABnzbd server or an invalid response
      * @returns The history
      */
-    history(start?: number, limit?: number, category?: string, search?: string, nzoIds?: string[], failedOnly?: boolean, lastHistoryUpdate?: boolean): Promise<History> {
+    history(start?: number, limit?: number, category?: string, search?: string, nzoIds?: string[], failedOnly?: boolean, lastHistoryUpdate?: number): Promise<History> {
         return new Promise<History>(async (resolve, reject) => {
             try {
                 let searchParams = new URLSearchParams();
@@ -522,7 +522,7 @@ export class Client {
                 if( search )            searchParams.append("search", search);
                 if( nzoIds )            searchParams.append("nzo_ids", nzoIds.join(','));
                 if( failedOnly )        searchParams.append("failed_only", (failedOnly ? '1':'0'));
-                if( lastHistoryUpdate ) searchParams.append("last_history_update", (lastHistoryUpdate ? '1':'0'));
+                if( lastHistoryUpdate ) searchParams.append("last_history_update", lastHistoryUpdate.toString());
 
                 let resultsObj          = await this.methodCall("history", searchParams);
                 let results: History    = resultsObj.history;
