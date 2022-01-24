@@ -1,0 +1,2566 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Client | sabnzbd-api - v1.5.0</title>
+	<meta name="description" content="Documentation for sabnzbd-api - v1.5.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">sabnzbd-api - v1.5.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">sabnzbd-api - v1.5.0</a>
+				</li>
+				<li>
+					<a href="Client.html">Client</a>
+				</li>
+			</ul>
+			<h1>Class Client</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The <a href="https://sabnzbd.org" class="external">SABnzbd</a> API Client.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Client</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="Client.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="Client.html#mApiKey" class="tsd-kind-icon">m<wbr>Api<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="Client.html#mHost" class="tsd-kind-icon">m<wbr>Host</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Config Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#getConfig" class="tsd-kind-icon">get<wbr>Config</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#setConfig" class="tsd-kind-icon">set<wbr>Config</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#setConfigDefault" class="tsd-kind-icon">set<wbr>Config<wbr>Default</a></li>
+							</ul>
+							<h3>History Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#history" class="tsd-kind-icon">history</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#historyDelete" class="tsd-kind-icon">history<wbr>Delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#historyDeleteAll" class="tsd-kind-icon">history<wbr>Delete<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#historyDeleteAllFailed" class="tsd-kind-icon">history<wbr>Delete<wbr>All<wbr>Failed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#historyRetry" class="tsd-kind-icon">history<wbr>Retry</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#historyRetryWithNZB" class="tsd-kind-icon">history<wbr>Retry<wbr>WithNZB</a></li>
+							</ul>
+							<h3>Misc Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#auth" class="tsd-kind-icon">auth</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#getCats" class="tsd-kind-icon">get<wbr>Cats</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#getScripts" class="tsd-kind-icon">get<wbr>Scripts</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#pausePostProcessing" class="tsd-kind-icon">pause<wbr>Post<wbr>Processing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#resetQuota" class="tsd-kind-icon">reset<wbr>Quota</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#restart" class="tsd-kind-icon">restart</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#restartRepair" class="tsd-kind-icon">restart<wbr>Repair</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#rssNow" class="tsd-kind-icon">rss<wbr>Now</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#shutdown" class="tsd-kind-icon">shutdown</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#translateText" class="tsd-kind-icon">translate<wbr>Text</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#version" class="tsd-kind-icon">version</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#warnings" class="tsd-kind-icon">warnings</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#warningsClear" class="tsd-kind-icon">warnings<wbr>Clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#watchedNow" class="tsd-kind-icon">watched<wbr>Now</a></li>
+							</ul>
+							<h3>Other Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#addFile" class="tsd-kind-icon">add<wbr>File</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#addPath" class="tsd-kind-icon">add<wbr>Path</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#addUrl" class="tsd-kind-icon">add<wbr>Url</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#changeCat" class="tsd-kind-icon">change<wbr>Cat</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#changeCompleteAction" class="tsd-kind-icon">change<wbr>Complete<wbr>Action</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#changePostProcessing" class="tsd-kind-icon">change<wbr>Post<wbr>Processing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#changePriority" class="tsd-kind-icon">change<wbr>Priority</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#changeScript" class="tsd-kind-icon">change<wbr>Script</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#fullStatus" class="tsd-kind-icon">full<wbr>Status</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#getFiles" class="tsd-kind-icon">get<wbr>Files</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#historyRetryAll" class="tsd-kind-icon">history<wbr>Retry<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#jobChangeName" class="tsd-kind-icon">job<wbr>Change<wbr>Name</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#jobDelete" class="tsd-kind-icon">job<wbr>Delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#jobDeleteAll" class="tsd-kind-icon">job<wbr>Delete<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#jobMove" class="tsd-kind-icon">job<wbr>Move</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#jobPause" class="tsd-kind-icon">job<wbr>Pause</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#jobResume" class="tsd-kind-icon">job<wbr>Resume</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="Client.html#methodCall" class="tsd-kind-icon">method<wbr>Call</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#queue" class="tsd-kind-icon">queue</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#queuePause" class="tsd-kind-icon">queue<wbr>Pause</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#queuePurge" class="tsd-kind-icon">queue<wbr>Purge</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#queueResume" class="tsd-kind-icon">queue<wbr>Resume</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#queueSort" class="tsd-kind-icon">queue<wbr>Sort</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#queueSpeedLimit" class="tsd-kind-icon">queue<wbr>Speed<wbr>Limit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#showLog" class="tsd-kind-icon">show<wbr>Log</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#statusDeleteOrphaned" class="tsd-kind-icon">status<wbr>Delete<wbr>Orphaned</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#statusRetryOrphaned" class="tsd-kind-icon">status<wbr>Retry<wbr>Orphaned</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#statusUnblockServer" class="tsd-kind-icon">status<wbr>Unblock<wbr>Server</a></li>
+							</ul>
+							<h3>Stats Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Client.html#serverStats" class="tsd-kind-icon">server<wbr>Stats</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Client<span class="tsd-signature-symbol">(</span>host<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, apiKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L43">Client.ts:43</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create new API client connecting to the given host using the supplied apiKey.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sabnzbd</span><span style="color: #000000">    = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;sabnzbd-api&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">       = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">sabnzbd</span><span style="color: #000000">.</span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;https://host.com/sabnzbd&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;apikey&quot;</span><span style="color: #000000">);</span>
+</code></pre>
+										<p>If your host requires HTTP authentication you can pass it in the host param</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sabnzbd</span><span style="color: #000000">    = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;sabnzbd-api&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">       = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">sabnzbd</span><span style="color: #000000">.</span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;https://user:password@host.com/sabnzbd&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;apikey&quot;</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>host: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Hostname of the SABnzbd server. Include HTTP/HTTPS prefix</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>apiKey: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>API key from the SABnzbd configuration</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="mApiKey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> m<wbr>Api<wbr>Key</h3>
+					<div class="tsd-signature tsd-kind-icon">m<wbr>Api<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L23">Client.ts:23</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The API key for the SABnzbd server</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="mHost" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> m<wbr>Host</h3>
+					<div class="tsd-signature tsd-kind-icon">m<wbr>Host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L17">Client.ts:17</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The hostname of the SABnzbd server including protocol (HTTP/HTTPS)</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Config Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getConfig" class="tsd-anchor"></a>
+					<h3>get<wbr>Config</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Config<span class="tsd-signature-symbol">(</span>section<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, keyword<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L848">Client.ts:848</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>You can read the whole configuration, a sub-set or a single setting.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> section: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Section of the config item</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> keyword: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The config item</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Config item in JSON object</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setConfig" class="tsd-anchor"></a>
+					<h3>set<wbr>Config</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Config<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L888">Client.ts:888</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set configuration option</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>args: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>JSON object with fields section, keyword, and value</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>JSON object with new config options if set</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setConfigDefault" class="tsd-anchor"></a>
+					<h3>set<wbr>Config<wbr>Default</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Config<wbr>Default<span class="tsd-signature-symbol">(</span>keyword<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L906">Client.ts:906</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reset config item to default value</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>keyword: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>History Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="history" class="tsd-anchor"></a>
+					<h3>history</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">history<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, category<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, search<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, nzoIds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, failedOnly<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, lastHistoryUpdate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/History.html" class="tsd-signature-type" data-tsd-kind="Interface">History</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L515">Client.ts:515</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Full history output with details about all jobs. The queue and the history output share many common fields, but the history also contains
+									statistiscs about how much has been downloaded in the past day, week, month and total.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index of job to start at</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> limit: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of jobs to display</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> category: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Only return jobs in this category</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> search: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Filter job names by search term</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nzoIds: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Filter jobs by nzo_ids</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> failedOnly: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Only show failed jobs</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> lastHistoryUpdate: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Only return full output if anything has changed since lastHistoryUpdate, the last update is given by a previous call to history</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/History.html" class="tsd-signature-type" data-tsd-kind="Interface">History</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The history</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="historyDelete" class="tsd-anchor"></a>
+					<h3>history<wbr>Delete</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">history<wbr>Delete<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L619">Client.ts:619</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete history items(s) based on nzo_id</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>nzo_id of the item(s) to delete</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="historyDeleteAll" class="tsd-anchor"></a>
+					<h3>history<wbr>Delete<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">history<wbr>Delete<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L639">Client.ts:639</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete all history items(s)</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="historyDeleteAllFailed" class="tsd-anchor"></a>
+					<h3>history<wbr>Delete<wbr>All<wbr>Failed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">history<wbr>Delete<wbr>All<wbr>Failed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L656">Client.ts:656</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete all failed history items(s)</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="historyRetry" class="tsd-anchor"></a>
+					<h3>history<wbr>Retry</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">history<wbr>Retry<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L544">Client.ts:544</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retry history item(s) based on nzo_id Optionally provide a password for unpacking.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>nzo_id of the history item</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> password: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Password for unpacking</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="historyRetryWithNZB" class="tsd-anchor"></a>
+					<h3>history<wbr>Retry<wbr>WithNZB</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">history<wbr>Retry<wbr>WithNZB<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, formData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FormData</span>, password<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L585">Client.ts:585</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retry history item(s) based on nzo_id and an additional NZB set to the nzbfile field.
+									Optionally provide a password for unpacking.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>nzo_id of the history item</p>
+									</div>
+								</li>
+								<li>
+									<h5>formData: <span class="tsd-signature-type">FormData</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New NZB to upload</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> password: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Password for unpacking</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Misc Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="auth" class="tsd-anchor"></a>
+					<h3>auth</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">auth<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L693">Client.ts:693</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get authentication methods available for interaction with the API</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An array of auth methods</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getCats" class="tsd-anchor"></a>
+					<h3>get<wbr>Cats</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Cats<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L755">Client.ts:755</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get all categories</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An array of strings containing the categories</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getScripts" class="tsd-anchor"></a>
+					<h3>get<wbr>Scripts</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Scripts<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L776">Client.ts:776</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get all scripts</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An array of strings containing the scripts</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="pausePostProcessing" class="tsd-anchor"></a>
+					<h3>pause<wbr>Post<wbr>Processing</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">pause<wbr>Post<wbr>Processing<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1004">Client.ts:1004</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pause post-processing queue</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="resetQuota" class="tsd-anchor"></a>
+					<h3>reset<wbr>Quota</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">reset<wbr>Quota<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1055">Client.ts:1055</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reset the user defined quota to 0</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="restart" class="tsd-anchor"></a>
+					<h3>restart</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">restart<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L970">Client.ts:970</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Restart SABnzbd</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="restartRepair" class="tsd-anchor"></a>
+					<h3>restart<wbr>Repair</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">restart<wbr>Repair<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L987">Client.ts:987</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Restart SABnzbd and perform a queue repair</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="rssNow" class="tsd-anchor"></a>
+					<h3>rss<wbr>Now</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">rss<wbr>Now<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1021">Client.ts:1021</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetch and process all RSS feeds</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="shutdown" class="tsd-anchor"></a>
+					<h3>shutdown</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">shutdown<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L953">Client.ts:953</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Shutdown SABnzbd</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="translateText" class="tsd-anchor"></a>
+					<h3>translate<wbr>Text</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">translate<wbr>Text<span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L933">Client.ts:933</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Translate any text known to SABnzbd from English to the locale setting of the user.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>text: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The text to translate</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The translated text</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="version" class="tsd-anchor"></a>
+					<h3>version</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L673">Client.ts:673</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get version of running SABnzbd</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>String containing the version information</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="warnings" class="tsd-anchor"></a>
+					<h3>warnings</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">warnings<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ErrorWarning.html" class="tsd-signature-type" data-tsd-kind="Interface">ErrorWarning</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L713">Client.ts:713</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get all active warnings</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ErrorWarning.html" class="tsd-signature-type" data-tsd-kind="Interface">ErrorWarning</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An array of <a href="../interfaces/ErrorWarning.html">ErrorWarning</a> describing all warnings.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="warningsClear" class="tsd-anchor"></a>
+					<h3>warnings<wbr>Clear</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">warnings<wbr>Clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L738">Client.ts:738</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clear all active warnings</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="watchedNow" class="tsd-anchor"></a>
+					<h3>watched<wbr>Now</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">watched<wbr>Now<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1038">Client.ts:1038</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Scan Watched Folder now</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Other Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addFile" class="tsd-anchor"></a>
+					<h3>add<wbr>File</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>File<span class="tsd-signature-symbol">(</span>formData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FormData</span>, name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, cat<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, script<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, priority<span class="tsd-signature-symbol">?: </span><a href="../enums/Priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Priority</a>, postProcess<span class="tsd-signature-symbol">?: </span><a href="../enums/PostProcessing.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PostProcessing</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L265">Client.ts:265</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Upload NZB using POST multipart/form-data with the FormData library. You must
+									set the file data to either the name or nzbfile field.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>formData: <span class="tsd-signature-type">FormData</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The FormData with the file in either the name or nzbfile field.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the job, if empty NZB filename is used.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> password: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Password to use when unpacking the job.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> cat: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Category to be assigned, * means Default. List of available categories can be retrieved from <a href="Client.html#getCats">getCats</a>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> script: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from <a href="Client.html#getScripts">getScripts</a>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> priority: <a href="../enums/Priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Priority</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Priority to be assigned, one of <a href="../enums/Priority.html">Priority</a></p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> postProcess: <a href="../enums/PostProcessing.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PostProcessing</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Post-processing options, one of <a href="../enums/PostProcessing.html">PostProcessing</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addPath" class="tsd-anchor"></a>
+					<h3>add<wbr>Path</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Path<span class="tsd-signature-symbol">(</span>filePath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, cat<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, script<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, priority<span class="tsd-signature-symbol">?: </span><a href="../enums/Priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Priority</a>, postProcess<span class="tsd-signature-symbol">?: </span><a href="../enums/PostProcessing.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PostProcessing</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L231">Client.ts:231</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Upload NZB from a location on the file system that SABnzbd can access.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>filePath: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Path to the file to add</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the job, if empty NZB filename is used.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> password: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Password to use when unpacking the job.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> cat: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Category to be assigned, * means Default. List of available categories can be retrieved from <a href="Client.html#getCats">getCats</a>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> script: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from <a href="Client.html#getScripts">getScripts</a>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> priority: <a href="../enums/Priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Priority</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Priority to be assigned, one of <a href="../enums/Priority.html">Priority</a></p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> postProcess: <a href="../enums/PostProcessing.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PostProcessing</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Post-processing options, one of <a href="../enums/PostProcessing.html">PostProcessing</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addUrl" class="tsd-anchor"></a>
+					<h3>add<wbr>Url</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Url<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, cat<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, script<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, priority<span class="tsd-signature-symbol">?: </span><a href="../enums/Priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Priority</a>, postProcess<span class="tsd-signature-symbol">?: </span><a href="../enums/PostProcessing.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PostProcessing</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L198">Client.ts:198</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add NZB using an URL that needs to be accessible by SABnzbd, so make sure to include authentication information if the Indexer requires it.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>URL of the NZB file to add</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the job, if empty NZB filename is used.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> password: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Password to use when unpacking the job.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> cat: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Category to be assigned, * means Default. List of available categories can be retrieved from <a href="Client.html#getCats">getCats</a>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> script: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from <a href="Client.html#getScripts">getScripts</a>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> priority: <a href="../enums/Priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Priority</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Priority to be assigned, one of <a href="../enums/Priority.html">Priority</a></p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> postProcess: <a href="../enums/PostProcessing.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PostProcessing</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Post-processing options, one of <a href="../enums/PostProcessing.html">PostProcessing</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="changeCat" class="tsd-anchor"></a>
+					<h3>change<wbr>Cat</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">change<wbr>Cat<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, category<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L419">Client.ts:419</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change category of job with nzo_id. List of available categories can be retrieved from <a href="Client.html#getCats">getCats</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The nzo_id of the Job to change</p>
+									</div>
+								</li>
+								<li>
+									<h5>category: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of the category</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="changeCompleteAction" class="tsd-anchor"></a>
+					<h3>change<wbr>Complete<wbr>Action</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">change<wbr>Complete<wbr>Action<span class="tsd-signature-symbol">(</span>action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L175">Client.ts:175</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set an end-of-queue action</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>action: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either one of <a href="../enums/CompleteAction.html">CompleteAction</a> or a string contaning the name of a script to execute. Prefix the script name
+										with script_ example: script_process.py</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="changePostProcessing" class="tsd-anchor"></a>
+					<h3>change<wbr>Post<wbr>Processing</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">change<wbr>Post<wbr>Processing<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, postProcessing<span class="tsd-signature-symbol">: </span><a href="../enums/PostProcessing.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PostProcessing</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L473">Client.ts:473</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change post-processing of job.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The nzo_id of the Job to change</p>
+									</div>
+								</li>
+								<li>
+									<h5>postProcessing: <a href="../enums/PostProcessing.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PostProcessing</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The PostProcessing level</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="changePriority" class="tsd-anchor"></a>
+					<h3>change<wbr>Priority</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">change<wbr>Priority<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, priority<span class="tsd-signature-symbol">: </span><a href="../enums/Priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Priority</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L455">Client.ts:455</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change priority of job.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The nzo_id of the Job to change</p>
+									</div>
+								</li>
+								<li>
+									<h5>priority: <a href="../enums/Priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Priority</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The priority</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="changeScript" class="tsd-anchor"></a>
+					<h3>change<wbr>Script</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">change<wbr>Script<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, script<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L437">Client.ts:437</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change script of job with nzo_id. List of available scripts can be retrieved from <a href="Client.html#getScripts">getScripts</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The nzo_id of the Job to change</p>
+									</div>
+								</li>
+								<li>
+									<h5>script: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The script name</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="fullStatus" class="tsd-anchor"></a>
+					<h3>full<wbr>Status</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">full<wbr>Status<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Status.html" class="tsd-signature-type" data-tsd-kind="Interface">Status</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1090">Client.ts:1090</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get all status information available from SABnzbd.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Status.html" class="tsd-signature-type" data-tsd-kind="Interface">Status</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Status.html">Status</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getFiles" class="tsd-anchor"></a>
+					<h3>get<wbr>Files</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Files<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/File.html" class="tsd-signature-type" data-tsd-kind="Interface">File</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L490">Client.ts:490</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get files of job</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The nzo_id of the Job</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/File.html" class="tsd-signature-type" data-tsd-kind="Interface">File</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Any array of <a href="../interfaces/File.html">File</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="historyRetryAll" class="tsd-anchor"></a>
+					<h3>history<wbr>Retry<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">history<wbr>Retry<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L564">Client.ts:564</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Will retry all failed jobs in the history. However, you are not able to supply passwords or extra NZB&#39;s.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="jobChangeName" class="tsd-anchor"></a>
+					<h3>job<wbr>Change<wbr>Name</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">job<wbr>Change<wbr>Name<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, newName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L395">Client.ts:395</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change name and optionally the password of job with nzo_id.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>nzo_id of the Job</p>
+									</div>
+								</li>
+								<li>
+									<h5>newName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New name for the job</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> password: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional password to be used during unpacking</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>{@link Results.Status} set to true or false if the call was successful</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="jobDelete" class="tsd-anchor"></a>
+					<h3>job<wbr>Delete</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">job<wbr>Delete<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L336">Client.ts:336</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delets jobs based on its nzo_id. Returns list of affected nzo_ids.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either a string containing one nzo_id or a array of nzo_ids</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="jobDeleteAll" class="tsd-anchor"></a>
+					<h3>job<wbr>Delete<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">job<wbr>Delete<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L357">Client.ts:357</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete all jobs</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="jobMove" class="tsd-anchor"></a>
+					<h3>job<wbr>Move</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">job<wbr>Move<span class="tsd-signature-symbol">(</span>firstId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, secondId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L376">Client.ts:376</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Job&#39;s can be switched by providing 2 nzo_id, firstId is the item you want to move, secondId is the id of the job where
+									you want to put value one above, shifting job secondId down.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>firstId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>nzo_id of job to move</p>
+									</div>
+								</li>
+								<li>
+									<h5>secondId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>nzo_id of where you want to put the job, shifting this job down.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="jobPause" class="tsd-anchor"></a>
+					<h3>job<wbr>Pause</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">job<wbr>Pause<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L302">Client.ts:302</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pause a single job based on its nzo_id. Returns list of affected nzo_ids.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The nzo_id of the Job to pause</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="jobResume" class="tsd-anchor"></a>
+					<h3>job<wbr>Resume</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">job<wbr>Resume<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L319">Client.ts:319</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resumes a single job based on its nzo_id. Returns list of affected nzo_ids.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The nzo_id of the Job to resume</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="methodCall" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> method<wbr>Call</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">method<wbr>Call<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, args<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, output<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1171">Client.ts:1171</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Call method on SABnzbd server and parse results as a JSON object if output
+									is json.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>method: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The api method to call</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> args: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either a JSON object or a URLSearchParams object containing the arguments</p>
+									</div>
+								</li>
+								<li>
+									<h5>output: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;json&#x27;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Output type either json or text</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>JSON object or string containing text depending on output</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="queue" class="tsd-anchor"></a>
+					<h3>queue</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">queue<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, search<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, nzoIds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Queue.html" class="tsd-signature-type" data-tsd-kind="Interface">Queue</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L58">Client.ts:58</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Full queue output with details about all jobs.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index of job to start at</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> limit: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of jobs to display</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> search: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Filter jobs names by search term</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nzoIds: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Filter jobs by nzo_ids</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Queue.html" class="tsd-signature-type" data-tsd-kind="Interface">Queue</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Queue.html">Queue</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="queuePause" class="tsd-anchor"></a>
+					<h3>queue<wbr>Pause</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">queue<wbr>Pause<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L84">Client.ts:84</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pauses the whole queue</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="queuePurge" class="tsd-anchor"></a>
+					<h3>queue<wbr>Purge</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">queue<wbr>Purge<span class="tsd-signature-symbol">(</span>search<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L135">Client.ts:135</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove all jobs from the queue, or only the ones matching search. Returns nzb_id of the jobs removed.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> search: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Filter jobs by search term</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="queueResume" class="tsd-anchor"></a>
+					<h3>queue<wbr>Resume</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">queue<wbr>Resume<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L100">Client.ts:100</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resume the whole queue</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="queueSort" class="tsd-anchor"></a>
+					<h3>queue<wbr>Sort</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">queue<wbr>Sort<span class="tsd-signature-symbol">(</span>sortBy<span class="tsd-signature-symbol">: </span><a href="../enums/SortOptions.html" class="tsd-signature-type" data-tsd-kind="Enumeration">SortOptions</a>, ascending<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L118">Client.ts:118</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sort the queue by <a href="../enums/SortOptions.html#AverageAge">SortOptions.AverageAge</a>, <a href="../enums/SortOptions.html#Name">SortOptions.Name</a> or <a href="../enums/SortOptions.html#Size">SortOptions.Size</a> in Ascending or Descending order.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sortBy: <a href="../enums/SortOptions.html" class="tsd-signature-type" data-tsd-kind="Enumeration">SortOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The option to sort queue by</p>
+									</div>
+								</li>
+								<li>
+									<h5>ascending: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Ascending or false for Descending order</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status and affected nzo_ids.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="queueSpeedLimit" class="tsd-anchor"></a>
+					<h3>queue<wbr>Speed<wbr>Limit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">queue<wbr>Speed<wbr>Limit<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L157">Client.ts:157</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the speedlimit to value in percentage of the maximum line speed (set by user).</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The speed limit value in either percentage. It can also be followed by K,M to define speedlimit in KB/s,MB/s, respectively.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="showLog" class="tsd-anchor"></a>
+					<h3>show<wbr>Log</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">show<wbr>Log<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L870">Client.ts:870</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The log file is automatically anonymized and a copy of the sabnzbd.ini is attached.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The anonymized logs</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="status" class="tsd-anchor"></a>
+					<h3>status</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">(</span>skipDashboard<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Boolean</span>, calculatePerformance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Status.html" class="tsd-signature-type" data-tsd-kind="Interface">Status</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1073">Client.ts:1073</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get all status information available from SABnzbd.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>skipDashboard: <span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Skip detecting public IPv4 address which can take some time.</p>
+									</div>
+								</li>
+								<li>
+									<h5>calculatePerformance: <span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Calculate performance measures</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Status.html" class="tsd-signature-type" data-tsd-kind="Interface">Status</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Status.html">Status</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="statusDeleteOrphaned" class="tsd-anchor"></a>
+					<h3>status<wbr>Delete<wbr>Orphaned</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">status<wbr>Delete<wbr>Orphaned<span class="tsd-signature-symbol">(</span>folder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1125">Client.ts:1125</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete orphaned job based on the folder name from the status.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>folder: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the folder</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="statusRetryOrphaned" class="tsd-anchor"></a>
+					<h3>status<wbr>Retry<wbr>Orphaned</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">status<wbr>Retry<wbr>Orphaned<span class="tsd-signature-symbol">(</span>folder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1146">Client.ts:1146</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retry orphaned job based on the folder name from the status.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>folder: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the folder</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="statusUnblockServer" class="tsd-anchor"></a>
+					<h3>status<wbr>Unblock<wbr>Server</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">status<wbr>Unblock<wbr>Server<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L1108">Client.ts:1108</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unblock server based on servername from the status.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the server to unblock</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Results.html" class="tsd-signature-type" data-tsd-kind="Interface">Results</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Results.html">Results</a> containing the status</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Stats Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="serverStats" class="tsd-anchor"></a>
+					<h3>server<wbr>Stats</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">server<wbr>Stats<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Stats.html" class="tsd-signature-type" data-tsd-kind="Interface">Stats</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/zordtk/sabnzbd-api/blob/65c9528/src/Client.ts#L796">Client.ts:796</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return download statistics in bytes, total and per-server.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throw</dt>
+									<dd><p><a href="https://nodejs.org/api/errors.html#errors_class_error" class="external">Error</a> throws error if unable to reach SABnzbd server or an invalid response</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Stats.html" class="tsd-signature-type" data-tsd-kind="Interface">Stats</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/Stats.html">Stats</a> containing all the statistic information</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="../enums/CompleteAction.html" class="tsd-kind-icon">Complete<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/ErrorType.html" class="tsd-kind-icon">Error<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/PostProcessing.html" class="tsd-kind-icon">Post<wbr>Processing</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/Priority.html" class="tsd-kind-icon">Priority</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/SortOptions.html" class="tsd-kind-icon">Sort<wbr>Options</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="Client.html" class="tsd-kind-icon">Client</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="Client.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="Client.html#mApiKey" class="tsd-kind-icon">m<wbr>Api<wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="Client.html#mHost" class="tsd-kind-icon">m<wbr>Host</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#addFile" class="tsd-kind-icon">add<wbr>File</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#addPath" class="tsd-kind-icon">add<wbr>Path</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#addUrl" class="tsd-kind-icon">add<wbr>Url</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#auth" class="tsd-kind-icon">auth</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#changeCat" class="tsd-kind-icon">change<wbr>Cat</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#changeCompleteAction" class="tsd-kind-icon">change<wbr>Complete<wbr>Action</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#changePostProcessing" class="tsd-kind-icon">change<wbr>Post<wbr>Processing</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#changePriority" class="tsd-kind-icon">change<wbr>Priority</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#changeScript" class="tsd-kind-icon">change<wbr>Script</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#fullStatus" class="tsd-kind-icon">full<wbr>Status</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#getCats" class="tsd-kind-icon">get<wbr>Cats</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#getConfig" class="tsd-kind-icon">get<wbr>Config</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#getFiles" class="tsd-kind-icon">get<wbr>Files</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#getScripts" class="tsd-kind-icon">get<wbr>Scripts</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#history" class="tsd-kind-icon">history</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#historyDelete" class="tsd-kind-icon">history<wbr>Delete</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#historyDeleteAll" class="tsd-kind-icon">history<wbr>Delete<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#historyDeleteAllFailed" class="tsd-kind-icon">history<wbr>Delete<wbr>All<wbr>Failed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#historyRetry" class="tsd-kind-icon">history<wbr>Retry</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#historyRetryAll" class="tsd-kind-icon">history<wbr>Retry<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#historyRetryWithNZB" class="tsd-kind-icon">history<wbr>Retry<wbr>WithNZB</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#jobChangeName" class="tsd-kind-icon">job<wbr>Change<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#jobDelete" class="tsd-kind-icon">job<wbr>Delete</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#jobDeleteAll" class="tsd-kind-icon">job<wbr>Delete<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#jobMove" class="tsd-kind-icon">job<wbr>Move</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#jobPause" class="tsd-kind-icon">job<wbr>Pause</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#jobResume" class="tsd-kind-icon">job<wbr>Resume</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="Client.html#methodCall" class="tsd-kind-icon">method<wbr>Call</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#pausePostProcessing" class="tsd-kind-icon">pause<wbr>Post<wbr>Processing</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#queue" class="tsd-kind-icon">queue</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#queuePause" class="tsd-kind-icon">queue<wbr>Pause</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#queuePurge" class="tsd-kind-icon">queue<wbr>Purge</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#queueResume" class="tsd-kind-icon">queue<wbr>Resume</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#queueSort" class="tsd-kind-icon">queue<wbr>Sort</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#queueSpeedLimit" class="tsd-kind-icon">queue<wbr>Speed<wbr>Limit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#resetQuota" class="tsd-kind-icon">reset<wbr>Quota</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#restart" class="tsd-kind-icon">restart</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#restartRepair" class="tsd-kind-icon">restart<wbr>Repair</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#rssNow" class="tsd-kind-icon">rss<wbr>Now</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#serverStats" class="tsd-kind-icon">server<wbr>Stats</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#setConfig" class="tsd-kind-icon">set<wbr>Config</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#setConfigDefault" class="tsd-kind-icon">set<wbr>Config<wbr>Default</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#showLog" class="tsd-kind-icon">show<wbr>Log</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#shutdown" class="tsd-kind-icon">shutdown</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#status" class="tsd-kind-icon">status</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#statusDeleteOrphaned" class="tsd-kind-icon">status<wbr>Delete<wbr>Orphaned</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#statusRetryOrphaned" class="tsd-kind-icon">status<wbr>Retry<wbr>Orphaned</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#statusUnblockServer" class="tsd-kind-icon">status<wbr>Unblock<wbr>Server</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#translateText" class="tsd-kind-icon">translate<wbr>Text</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#version" class="tsd-kind-icon">version</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#warnings" class="tsd-kind-icon">warnings</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#warningsClear" class="tsd-kind-icon">warnings<wbr>Clear</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Client.html#watchedNow" class="tsd-kind-icon">watched<wbr>Now</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ErrorWarning.html" class="tsd-kind-icon">Error<wbr>Warning</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/File.html" class="tsd-kind-icon">File</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/History.html" class="tsd-kind-icon">History</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/HistorySlots.html" class="tsd-kind-icon">History<wbr>Slots</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/HistoryStageLog.html" class="tsd-kind-icon">History<wbr>Stage<wbr>Log</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/Queue.html" class="tsd-kind-icon">Queue</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/QueueSlot.html" class="tsd-kind-icon">Queue<wbr>Slot</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/Results.html" class="tsd-kind-icon">Results</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ServerStats.html" class="tsd-kind-icon">Server<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ServerconnectionsEntity.html" class="tsd-kind-icon">Serverconnections<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ServersEntity.html" class="tsd-kind-icon">Servers<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/Stats.html" class="tsd-kind-icon">Stats</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/Status.html" class="tsd-kind-icon">Status</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

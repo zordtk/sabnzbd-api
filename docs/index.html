@@ -1,0 +1,241 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>sabnzbd-api - v1.5.0</title>
+	<meta name="description" content="Documentation for sabnzbd-api - v1.5.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">sabnzbd-api - v1.5.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>sabnzbd-api - v1.5.0</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#sabnzbd-api" id="sabnzbd-api" style="color: inherit; text-decoration: none;">
+					<h1>SABnzbd-API</h1>
+				</a>
+				<p><a href="http://sabnzbd.org/">SABnzbd</a> API client written in TypeScript licensed under the MIT. It supports all of the API calls listed in the version 3.4.0 documentation (<a href="https://sabnzbd.org/wiki/advanced/api">https://sabnzbd.org/wiki/advanced/api</a>). It&#39;s still under active development and I welcome issue reports and pull requests.</p>
+				<p><a href="https://github.com/zordtk/sabnzbd-api/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a>  <a href="https://www.npmjs.com/package/sabnzbd-api"><img src="https://img.shields.io/npm/v/sabnzbd-api.svg?style=flat" alt="npm version"></a> <a href="https://circleci.com/gh/zordtk/sabnzbd-api"><img src="https://circleci.com/gh/zordtk/sabnzbd-api.svg?style=shield" alt="CircleCI"></a></p>
+				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+					<h1>Features</h1>
+				</a>
+				<ul>
+					<li>Written in TypeScript</li>
+					<li>Promise based API</li>
+					<li>Supports adding files via multi-part form data using the <a href="https://github.com/form-data/form-data">FormData</a> library.</li>
+				</ul>
+				<a href="#dependencies" id="dependencies" style="color: inherit; text-decoration: none;">
+					<h1>Dependencies</h1>
+				</a>
+				<ul>
+					<li>TypeScript</li>
+					<li>Got v11.8.2+ (<a href="https://github.com/sindresorhus/got">https://github.com/sindresorhus/got</a>)</li>
+					<li>FormData v4.0+ (<a href="https://github.com/form-data/form-data">https://github.com/form-data/form-data</a>)</li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h1>Installation</h1>
+				</a>
+				<p><code>npm install --save sabnzbd-api</code></p>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h1>Documentation</h1>
+				</a>
+				<p>You can find the API documentation at <a href="https://zordtk.github.io/sabnzbd-api/docs/">https://zordtk.github.io/sabnzbd-api/docs/</a>, you should also read SABnzbd&#39;s API documentation at <a href="https://sabnzbd.org/wiki/advanced/api">https://sabnzbd.org/wiki/advanced/api</a></p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h1>Usage</h1>
+				</a>
+				<a href="#version" id="version" style="color: inherit; text-decoration: none;">
+					<h4>version()</h4>
+				</a>
+				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">SABnzbd</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;sabnzbd-api&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">    = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">SABnzbd</span><span style="color: #000000">.</span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;http://example.com/sabnzbd&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;apikey&quot;</span><span style="color: #000000">);</span>
+<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">version</span><span style="color: #000000">().</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">version</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">version</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000">.</span><span style="color: #001080">message</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#addurl" id="addurl" style="color: inherit; text-decoration: none;">
+					<h4>addUrl()</h4>
+				</a>
+				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">SABnzbd</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;sabnzbd-api&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">    = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">SABnzbd</span><span style="color: #000000">.</span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;http://example.com/sabnzbd&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;apikey&quot;</span><span style="color: #000000">);</span>
+<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">addUrl</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;url-to-nzb&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">results</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000">( </span><span style="color: #001080">results</span><span style="color: #000000">.</span><span style="color: #001080">status</span><span style="color: #000000"> )</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Added NZB&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">else</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Failed to add NZB: &#039;</span><span style="color: #000000"> + </span><span style="color: #001080">results</span><span style="color: #000000">.</span><span style="color: #001080">error</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000">.</span><span style="color: #001080">message</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#addfile" id="addfile" style="color: inherit; text-decoration: none;">
+					<h4>addFile()</h4>
+				</a>
+				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">SABnzbd</span><span style="color: #000000">   = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;sabnzbd-api&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">fs</span><span style="color: #000000">        = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;fs&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">FormData</span><span style="color: #000000">  = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;form-data&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">      = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">SABnzbd</span><span style="color: #000000">.</span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;http://example.com/sabnzbd&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;apikey&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">formData</span><span style="color: #000000">    = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">FormData</span><span style="color: #000000">();</span>
+
+<span style="color: #001080">formData</span><span style="color: #000000">.</span><span style="color: #795E26">append</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;name&quot;</span><span style="color: #000000">, </span><span style="color: #001080">fs</span><span style="color: #000000">.</span><span style="color: #795E26">createReadStream</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;/path/to/file&quot;</span><span style="color: #000000">));</span>
+<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">addFile</span><span style="color: #000000">(</span><span style="color: #001080">formData</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">results</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000">( </span><span style="color: #001080">results</span><span style="color: #000000">.</span><span style="color: #001080">status</span><span style="color: #000000"> )</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Added NZB&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">else</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Failed to add NZB: &#039;</span><span style="color: #000000"> + </span><span style="color: #001080">results</span><span style="color: #000000">.</span><span style="color: #001080">error</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000">.</span><span style="color: #001080">message</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#todo" id="todo" style="color: inherit; text-decoration: none;">
+					<h1>Todo</h1>
+				</a>
+				<ul>
+					<li>Improve documentation</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/CompleteAction.html" class="tsd-kind-icon">Complete<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/ErrorType.html" class="tsd-kind-icon">Error<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/PostProcessing.html" class="tsd-kind-icon">Post<wbr>Processing</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/Priority.html" class="tsd-kind-icon">Priority</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/SortOptions.html" class="tsd-kind-icon">Sort<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/Client.html" class="tsd-kind-icon">Client</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ErrorWarning.html" class="tsd-kind-icon">Error<wbr>Warning</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/File.html" class="tsd-kind-icon">File</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/History.html" class="tsd-kind-icon">History</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/HistorySlots.html" class="tsd-kind-icon">History<wbr>Slots</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/HistoryStageLog.html" class="tsd-kind-icon">History<wbr>Stage<wbr>Log</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/Queue.html" class="tsd-kind-icon">Queue</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/QueueSlot.html" class="tsd-kind-icon">Queue<wbr>Slot</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/Results.html" class="tsd-kind-icon">Results</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ServerStats.html" class="tsd-kind-icon">Server<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ServerconnectionsEntity.html" class="tsd-kind-icon">Serverconnections<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ServersEntity.html" class="tsd-kind-icon">Servers<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/Stats.html" class="tsd-kind-icon">Stats</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/Status.html" class="tsd-kind-icon">Status</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
