@@ -10,7 +10,7 @@
 
 # Dependencies
 * TypeScript
-* Got v11.8.2+ (<https://github.com/sindresorhus/got>)
+* Got v11.8.2 (<https://github.com/sindresorhus/got>)
 * FormData v4.0+ (<https://github.com/form-data/form-data>)
 
 # Installation
