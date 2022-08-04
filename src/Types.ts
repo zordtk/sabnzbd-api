@@ -89,7 +89,7 @@ export interface Queue {
     noofslots: number;
     limit: number;
     start: number;
-    eta: string;
+    eta?: string; // Deprecated in 3.6.0
     timeleft: string;
     speed: string;
     kbpersec: string;
@@ -106,17 +106,17 @@ export interface Queue {
     diskspacetotal2: string;
     diskspace1_norm: string;
     diskspace2_norm: string;
-    rating_enable: boolean;
+    rating_enable?: boolean; // Deprecated in 3.6.0
     have_warnings: string;
     pause_int: string;
     loadavg: string;
     left_quota: string;
-    refresh_rate: string;
+    refresh_rate?: string; // Deprecated in 3.6.0
     version: string;
     finish: number;
     cache_art: string;
     cache_size: string;
-    cache_max: string;
+    cache_max?: string; // Deprecated in 3.6.0
     finishaction?: null;
     paused_all: boolean;
     quota: string;
@@ -140,7 +140,7 @@ export interface QueueSlot {
     labels?: (string | null)[] | null;
     priority: string;
     cat: string;
-    eta: string;
+    eta?: string; // Deprecated in 3.6.0
     timeleft: string;
     percentage: string;
     nzo_id: string;
