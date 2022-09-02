@@ -1,5 +1,5 @@
 # SABnzbd-API
-[SABnzbd](http://sabnzbd.org/) API client written in TypeScript licensed under the MIT. It supports all of the API calls listed in the version 3.6.0 documentation (<https://sabnzbd.org/wiki/advanced/api>). It's still under active development and I welcome issue reports and pull requests.
+[SABnzbd](http://sabnzbd.org/) API client written in TypeScript licensed under the MIT. It supports all of the API calls listed in the version 3.6.1 documentation (<https://sabnzbd.org/wiki/advanced/api>). It's still under active development and I welcome issue reports and pull requests.
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zordtk/sabnzbd-api/blob/main/LICENSE)  [![npm version](https://img.shields.io/npm/v/sabnzbd-api.svg?style=flat)](https://www.npmjs.com/package/sabnzbd-api) [![CircleCI](https://circleci.com/gh/zordtk/sabnzbd-api.svg?style=shield)](https://circleci.com/gh/zordtk/sabnzbd-api)
 
